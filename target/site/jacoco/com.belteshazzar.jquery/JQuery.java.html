@@ -366,7 +366,7 @@ public class JQuery {
 //		return new JQuery(null);
 //	}
 	
-	/** https://api.jquery.com/jQuery/#jQuery-html-attributes
+	/* https://api.jquery.com/jQuery/#jQuery-html-attributes
 	 *
 	 * Javascript examples:
 	 * 
@@ -388,18 +388,15 @@ public class JQuery {
 	 * })
   	 * .appendTo( &quot;body&quot; );
   	 * 
-	 * @param html
-	 * @param attributes
-	 * @return
 	 */
 	public static JQuery $(String html, PlainObject attributes) {
-<span class="fc" id="L396">		return new JQuery(window.call(&quot;jQuery&quot;, html, attributes.toJSObject()));</span>
+<span class="fc" id="L393">		return new JQuery(window.call(&quot;jQuery&quot;, html, attributes.toJSObject()));</span>
 	}
 	
 	// https://api.jquery.com/jQuery/#jQuery-callback
 	public static JQuery $(VoidFunction callback) {
-<span class="fc" id="L401">		readyFunctions.add(callback);</span>
-<span class="fc" id="L402">		return new JQuery(null);</span>
+<span class="fc" id="L398">		readyFunctions.add(callback);</span>
+<span class="fc" id="L399">		return new JQuery(null);</span>
 	}
 	
 	/////////////////////////////////////////////////////////////////////
@@ -407,2480 +404,2480 @@ public class JQuery {
 	public final int length;
 	private final JSObject js;
 	
-<span class="fc" id="L410">	private JQuery(Object o) {</span>
-<span class="fc bfc" id="L411" title="All 2 branches covered.">		if (o instanceof JSObject) {</span>
-<span class="fc" id="L412">			js = (JSObject)o;</span>
-<span class="fc" id="L413">			length = (int)js.getMember(&quot;length&quot;);</span>
+<span class="fc" id="L407">	private JQuery(Object o) {</span>
+<span class="fc bfc" id="L408" title="All 2 branches covered.">		if (o instanceof JSObject) {</span>
+<span class="fc" id="L409">			js = (JSObject)o;</span>
+<span class="fc" id="L410">			length = (int)js.getMember(&quot;length&quot;);</span>
 		} else {
-<span class="fc" id="L415">			js = null;</span>
-<span class="fc" id="L416">			this.length = 0;</span>
+<span class="fc" id="L412">			js = null;</span>
+<span class="fc" id="L413">			this.length = 0;</span>
 		}
-<span class="fc" id="L418">	}</span>
+<span class="fc" id="L415">	}</span>
 	
 	// https://api.jquery.com/add/#add-selector
 	// https://api.jquery.com/add/#add-html
 	public JQuery add(String selector) {
-<span class="fc" id="L423">		return new JQuery(js.call(&quot;add&quot;, selector));</span>
+<span class="fc" id="L420">		return new JQuery(js.call(&quot;add&quot;, selector));</span>
 	}
 	
 	// https://api.jquery.com/add/#add-elements
 	public JQuery add(Element element) {
-<span class="fc" id="L428">		return new JQuery(js.call(&quot;add&quot;, element));</span>
+<span class="fc" id="L425">		return new JQuery(js.call(&quot;add&quot;, element));</span>
 	}
 	
 	// https://api.jquery.com/add/#add-selection
 	public JQuery add(JQuery selection) {
-<span class="fc" id="L433">		return new JQuery(js.call(&quot;add&quot;, selection.js));</span>
+<span class="fc" id="L430">		return new JQuery(js.call(&quot;add&quot;, selection.js));</span>
 	}
 	
 	// https://api.jquery.com/add/#add-selector-context
 	public JQuery add(String selector, Element context) {
-<span class="nc" id="L438">		return new JQuery(js.call(&quot;add&quot;, selector, context));</span>
+<span class="nc" id="L435">		return new JQuery(js.call(&quot;add&quot;, selector, context));</span>
 	}
 	
 	// https://api.jquery.com/addBack/#addBack-selector
 	public JQuery addBack() {
-<span class="fc" id="L443">		return new JQuery(js.call(&quot;addBack&quot;));</span>
+<span class="fc" id="L440">		return new JQuery(js.call(&quot;addBack&quot;));</span>
 	}
 	
 	// https://api.jquery.com/addBack/#addBack-selector
 	public JQuery addBack(String selector) {
-<span class="fc" id="L448">		return new JQuery(js.call(&quot;addBack&quot;, selector));</span>
+<span class="fc" id="L445">		return new JQuery(js.call(&quot;addBack&quot;, selector));</span>
 	}
 	
 	// https://api.jquery.com/addClass/#addClass-className
 	public JQuery addClass(String classname) {
-<span class="fc" id="L453">		js.call(&quot;addClass&quot;, classname);</span>
-<span class="fc" id="L454">		return this;</span>
+<span class="fc" id="L450">		js.call(&quot;addClass&quot;, classname);</span>
+<span class="fc" id="L451">		return this;</span>
 	}
 	
 	public JQuery addClass(IntStringStringFunction function) {
-<span class="fc" id="L458">		js.call(&quot;addClass&quot;, createFunction(function));</span>
-<span class="fc" id="L459">		return this;</span>
+<span class="fc" id="L455">		js.call(&quot;addClass&quot;, createFunction(function));</span>
+<span class="fc" id="L456">		return this;</span>
 	}
 	
 	// https://api.jquery.com/after/#after-content-content
 	public JQuery after(String content) {
-<span class="fc" id="L464">		js.call(&quot;after&quot;, content);</span>
-<span class="fc" id="L465">		return this;</span>
+<span class="fc" id="L461">		js.call(&quot;after&quot;, content);</span>
+<span class="fc" id="L462">		return this;</span>
 	}
 
 	// https://api.jquery.com/after/#after-content-content
 	public JQuery after(Element content) {
-<span class="fc" id="L470">		js.call(&quot;after&quot;, content);</span>
-<span class="fc" id="L471">		return this;</span>
+<span class="fc" id="L467">		js.call(&quot;after&quot;, content);</span>
+<span class="fc" id="L468">		return this;</span>
 	}
 
 	// https://api.jquery.com/after/#after-content-content
 	public JQuery after(Element ... content) {
-<span class="nc" id="L476">		js.call(&quot;after&quot;, createArray(content));</span>
-<span class="nc" id="L477">		return this;</span>
+<span class="nc" id="L473">		js.call(&quot;after&quot;, createArray(content));</span>
+<span class="nc" id="L474">		return this;</span>
 	}
 
 	// https://api.jquery.com/after/#after-content-content
 	public JQuery after(JQuery content) {
-<span class="fc" id="L482">		js.call(&quot;after&quot;, content.js);</span>
-<span class="fc" id="L483">		return this;</span>
+<span class="fc" id="L479">		js.call(&quot;after&quot;, content.js);</span>
+<span class="fc" id="L480">		return this;</span>
 	}
 	
 	// https://api.jquery.com/after/#after-function
 	public JQuery after(IntStringFunction function) {
-<span class="nc" id="L488">		return new JQuery(js.call(&quot;after&quot;, createFunction(function)));</span>
+<span class="nc" id="L485">		return new JQuery(js.call(&quot;after&quot;, createFunction(function)));</span>
 	}
 	
 	// https://api.jquery.com/after/#after-function
 	public JQuery after(IntElementFunction function) {
-<span class="nc" id="L493">		return new JQuery(js.call(&quot;after&quot;, createFunction(function)));</span>
+<span class="nc" id="L490">		return new JQuery(js.call(&quot;after&quot;, createFunction(function)));</span>
 	}
 	
 	// https://api.jquery.com/after/#after-function
 	public JQuery after(IntJQueryFunction function) {
-<span class="nc" id="L498">		return new JQuery(js.call(&quot;after&quot;, createFunction(function)));</span>
+<span class="nc" id="L495">		return new JQuery(js.call(&quot;after&quot;, createFunction(function)));</span>
 	}
 	
 	// https://api.jquery.com/after/#after-function
 	public JQuery after(IntStringStringFunction function) {
-<span class="nc" id="L503">		return new JQuery(js.call(&quot;after&quot;, createFunction(function)));</span>
+<span class="nc" id="L500">		return new JQuery(js.call(&quot;after&quot;, createFunction(function)));</span>
 	}
 	
 	// https://api.jquery.com/after/#after-function
 	public JQuery after(IntStringElementFunction function) {
-<span class="nc" id="L508">		return new JQuery(js.call(&quot;after&quot;, createFunction(function)));</span>
+<span class="nc" id="L505">		return new JQuery(js.call(&quot;after&quot;, createFunction(function)));</span>
 	}
 	
 	// https://api.jquery.com/after/#after-function
 	public JQuery after(IntStringJQueryFunction function) {
-<span class="nc" id="L513">		return new JQuery(js.call(&quot;after&quot;, createFunction(function)));</span>
+<span class="nc" id="L510">		return new JQuery(js.call(&quot;after&quot;, createFunction(function)));</span>
 	}
 	
 	// http://api.jquery.com/animate/
 	public JQuery animate(PlainObject properties) {
-<span class="nc" id="L518">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject()));</span>
+<span class="nc" id="L515">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject()));</span>
 	}
 
 	// http://api.jquery.com/animate/
 	public JQuery animate(PlainObject properties, VoidFunction complete) {
-<span class="nc" id="L523">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject(), createFunction(complete)));</span>
+<span class="nc" id="L520">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject(), createFunction(complete)));</span>
 	}
 
 	// http://api.jquery.com/animate/
 	public JQuery animate(PlainObject properties, int duration) {
-<span class="nc" id="L528">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject(), duration));</span>
+<span class="nc" id="L525">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject(), duration));</span>
 	}
 
 	// http://api.jquery.com/animate/
 	public JQuery animate(PlainObject properties, int duration, VoidFunction complete) {
-<span class="fc" id="L533">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject(),duration, createFunction(complete)));</span>
+<span class="fc" id="L530">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject(),duration, createFunction(complete)));</span>
 	}
 
 	// http://api.jquery.com/animate/
 	public JQuery animate(PlainObject properties, int duration, String easing) {
-<span class="fc" id="L538">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject(), duration, easing));</span>
+<span class="fc" id="L535">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject(), duration, easing));</span>
 	}
 
 	// http://api.jquery.com/animate/
 	public JQuery animate(PlainObject properties, int duration, String easing, VoidFunction complete) {
-<span class="fc" id="L543">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject(), duration, easing, createFunction(complete)));</span>
+<span class="fc" id="L540">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject(), duration, easing, createFunction(complete)));</span>
 	}
 
 	// http://api.jquery.com/animate/
 	public JQuery animate(PlainObject properties, AnimationOptions options) {
-<span class="fc" id="L548">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject(), options.toJSObject()));</span>
+<span class="fc" id="L545">		return new JQuery(js.call(&quot;animate&quot;, properties.toJSObject(), options.toJSObject()));</span>
 	}
 
 	// https://api.jquery.com/append/#append-content-content
 	public JQuery append(String content) {
-<span class="fc" id="L553">		js.call(&quot;append&quot;, content);</span>
-<span class="fc" id="L554">		return this;</span>
+<span class="fc" id="L550">		js.call(&quot;append&quot;, content);</span>
+<span class="fc" id="L551">		return this;</span>
 	}
 
 	// https://api.jquery.com/append/#append-content-content
 	public JQuery append(Element content) {
-<span class="nc" id="L559">		js.call(&quot;append&quot;, content);</span>
-<span class="nc" id="L560">		return this;</span>
+<span class="nc" id="L556">		js.call(&quot;append&quot;, content);</span>
+<span class="nc" id="L557">		return this;</span>
 	}
 
 	// https://api.jquery.com/append/#append-content-content
 	public JQuery append(Element ... content) {
-<span class="nc" id="L565">		js.call(&quot;append&quot;, createArray(content));</span>
-<span class="nc" id="L566">		return this;</span>
+<span class="nc" id="L562">		js.call(&quot;append&quot;, createArray(content));</span>
+<span class="nc" id="L563">		return this;</span>
 	}
 
 	// https://api.jquery.com/append/#append-content-content
 	public JQuery append(JQuery content) {
-<span class="nc" id="L571">		js.call(&quot;append&quot;, content.js);</span>
-<span class="nc" id="L572">		return this;</span>
+<span class="nc" id="L568">		js.call(&quot;append&quot;, content.js);</span>
+<span class="nc" id="L569">		return this;</span>
 	}
 
 	// https://api.jquery.com/append/#append-function
 	public JQuery append(IntStringStringFunction function) {
-<span class="nc" id="L577">		return new JQuery(js.call(&quot;append&quot;, createFunction(function)));</span>
+<span class="nc" id="L574">		return new JQuery(js.call(&quot;append&quot;, createFunction(function)));</span>
 	}
 	// https://api.jquery.com/append/#append-function
 	public JQuery append(IntStringElementFunction function) {
-<span class="nc" id="L581">		return new JQuery(js.call(&quot;append&quot;, createFunction(function)));</span>
+<span class="nc" id="L578">		return new JQuery(js.call(&quot;append&quot;, createFunction(function)));</span>
 	}
 	// https://api.jquery.com/append/#append-function
 	public JQuery append(IntStringJQueryFunction function) {
-<span class="nc" id="L585">		return new JQuery(js.call(&quot;append&quot;, createFunction(function)));</span>
+<span class="nc" id="L582">		return new JQuery(js.call(&quot;append&quot;, createFunction(function)));</span>
 	}
 	
 	// https://api.jquery.com/appendTo/#appendTo-target
 	public JQuery appendTo(String target) {
-<span class="nc" id="L590">		js.call(&quot;appendTo&quot;, target);</span>
-<span class="nc" id="L591">		return this;</span>
+<span class="nc" id="L587">		js.call(&quot;appendTo&quot;, target);</span>
+<span class="nc" id="L588">		return this;</span>
 	}
 
 	// https://api.jquery.com/appendTo/#appendTo-target
 	public JQuery appendTo(Element target) {
-<span class="nc" id="L596">		js.call(&quot;appendTo&quot;, target);</span>
-<span class="nc" id="L597">		return this;</span>
+<span class="nc" id="L593">		js.call(&quot;appendTo&quot;, target);</span>
+<span class="nc" id="L594">		return this;</span>
 	}
 
 	// https://api.jquery.com/appendTo/#appendTo-target
 	public JQuery appendTo(Element ... target) {
-<span class="nc" id="L602">		js.call(&quot;appendTo&quot;, createArray(target));</span>
-<span class="nc" id="L603">		return this;</span>
+<span class="nc" id="L599">		js.call(&quot;appendTo&quot;, createArray(target));</span>
+<span class="nc" id="L600">		return this;</span>
 	}
 
 	// https://api.jquery.com/appendTo/#appendTo-target
 	public JQuery appendTo(JQuery target) {
-<span class="nc" id="L608">		js.call(&quot;appendTo&quot;, target.js);</span>
-<span class="nc" id="L609">		return this;</span>
+<span class="nc" id="L605">		js.call(&quot;appendTo&quot;, target.js);</span>
+<span class="nc" id="L606">		return this;</span>
 	}
 	
 	// https://api.jquery.com/attr/#attr1
 	public String attr(String attributeName) {
-<span class="nc" id="L614">		return (String)js.call(&quot;attr&quot;, attributeName);</span>
+<span class="nc" id="L611">		return (String)js.call(&quot;attr&quot;, attributeName);</span>
 	}
 
 	// https://api.jquery.com/attr/#attr1
 	public JQuery attr(String attributeName, String value) {
-<span class="nc" id="L619">		js.call(&quot;attr&quot;, attributeName, value);</span>
-<span class="nc" id="L620">		return this;</span>
+<span class="nc" id="L616">		js.call(&quot;attr&quot;, attributeName, value);</span>
+<span class="nc" id="L617">		return this;</span>
 	}
 
 	public JQuery attr(String attributeName, Number value) {
-<span class="nc" id="L624">		js.call(&quot;attr&quot;, attributeName, value);</span>
-<span class="nc" id="L625">		return this;</span>
+<span class="nc" id="L621">		js.call(&quot;attr&quot;, attributeName, value);</span>
+<span class="nc" id="L622">		return this;</span>
 	}
 
 	// https://api.jquery.com/attr/#attr-attributes
 	public JQuery attr(PlainObject attributes) {
-<span class="nc" id="L630">		js.call(&quot;attr&quot;, attributes.toJSObject());</span>
-<span class="nc" id="L631">		return this;</span>
+<span class="nc" id="L627">		js.call(&quot;attr&quot;, attributes.toJSObject());</span>
+<span class="nc" id="L628">		return this;</span>
 	}
 	
 	// https://api.jquery.com/attr/#attr-attributeName-function
 	public JQuery attr(String attributeName, IntStringStringFunction function) {
-<span class="nc" id="L636">		js.call(&quot;attr&quot;, attributeName, createFunction(function));</span>
-<span class="nc" id="L637">		return this;</span>
+<span class="nc" id="L633">		js.call(&quot;attr&quot;, attributeName, createFunction(function));</span>
+<span class="nc" id="L634">		return this;</span>
 	}
 	
 	// https://api.jquery.com/attr/#attr-attributeName-function
 	public JQuery attr(String attributeName, IntStringIntFunction function) {
-<span class="nc" id="L642">		js.call(&quot;attr&quot;, attributeName, createFunction(function));</span>
-<span class="nc" id="L643">		return this;</span>
+<span class="nc" id="L639">		js.call(&quot;attr&quot;, attributeName, createFunction(function));</span>
+<span class="nc" id="L640">		return this;</span>
 	}
 
 	// https://api.jquery.com/before/#before-content-content
 	public JQuery before(String content) {
-<span class="nc" id="L648">		js.call(&quot;before&quot;, content);</span>
-<span class="nc" id="L649">		return this;</span>
+<span class="nc" id="L645">		js.call(&quot;before&quot;, content);</span>
+<span class="nc" id="L646">		return this;</span>
 	}
 
 	// https://api.jquery.com/before/#before-content-content
 	public JQuery before(Element content) {
-<span class="nc" id="L654">		js.call(&quot;before&quot;, content);</span>
-<span class="nc" id="L655">		return this;</span>
+<span class="nc" id="L651">		js.call(&quot;before&quot;, content);</span>
+<span class="nc" id="L652">		return this;</span>
 	}
 
 	// https://api.jquery.com/before/#before-content-content
 	public JQuery before(Element ... content) {
-<span class="nc" id="L660">		js.call(&quot;before&quot;, createArray(content));</span>
-<span class="nc" id="L661">		return this;</span>
+<span class="nc" id="L657">		js.call(&quot;before&quot;, createArray(content));</span>
+<span class="nc" id="L658">		return this;</span>
 	}
 
 	// https://api.jquery.com/before/#before-content-content
 	public JQuery before(JQuery content) {
-<span class="nc" id="L666">		js.call(&quot;before&quot;, content.js);</span>
-<span class="nc" id="L667">		return this;</span>
+<span class="nc" id="L663">		js.call(&quot;before&quot;, content.js);</span>
+<span class="nc" id="L664">		return this;</span>
 	}
 	
 	// https://api.jquery.com/before/#before-function
 	public JQuery before(IntStringFunction function) {
-<span class="nc" id="L672">		return new JQuery(js.call(&quot;before&quot;, createFunction(function)));</span>
+<span class="nc" id="L669">		return new JQuery(js.call(&quot;before&quot;, createFunction(function)));</span>
 	}
 	
 	// https://api.jquery.com/before/#before-function
 	public JQuery before(IntElementFunction function) {
-<span class="nc" id="L677">		return new JQuery(js.call(&quot;before&quot;, createFunction(function)));</span>
+<span class="nc" id="L674">		return new JQuery(js.call(&quot;before&quot;, createFunction(function)));</span>
 	}
 
 	// https://api.jquery.com/before/#before-function
 	public JQuery before(IntJQueryFunction function) {
-<span class="nc" id="L682">		return new JQuery(js.call(&quot;before&quot;, createFunction(function)));</span>
+<span class="nc" id="L679">		return new JQuery(js.call(&quot;before&quot;, createFunction(function)));</span>
 	}
 
 	// https://api.jquery.com/before/#before-function
 	public JQuery before(IntStringStringFunction function) {
-<span class="nc" id="L687">		return new JQuery(js.call(&quot;before&quot;, createFunction(function)));</span>
+<span class="nc" id="L684">		return new JQuery(js.call(&quot;before&quot;, createFunction(function)));</span>
 	}
 
 	// https://api.jquery.com/before/#before-function
 	public JQuery before(IntStringElementFunction function) {
-<span class="nc" id="L692">		return new JQuery(js.call(&quot;before&quot;, createFunction(function)));</span>
+<span class="nc" id="L689">		return new JQuery(js.call(&quot;before&quot;, createFunction(function)));</span>
 	}
 
 	// https://api.jquery.com/before/#before-function
 	public JQuery before(IntStringJQueryFunction function) {
-<span class="nc" id="L697">		return new JQuery(js.call(&quot;before&quot;, createFunction(function)));</span>
+<span class="nc" id="L694">		return new JQuery(js.call(&quot;before&quot;, createFunction(function)));</span>
 	}
 
 	// https://api.jquery.com/bind/#bind-eventType-eventData-handler
 	public JQuery bind(String eventType, EventHandler handler) {
-<span class="fc" id="L702">		JSObject jsHandler = createFunction(handler);</span>
-<span class="fc" id="L703">		eventHandlerMap.put(handler.hashCode(), jsHandler);</span>
-<span class="fc" id="L704">		js.call(&quot;bind&quot;, eventType, jsHandler);</span>
-<span class="fc" id="L705">		return this;</span>
+<span class="fc" id="L699">		JSObject jsHandler = createFunction(handler);</span>
+<span class="fc" id="L700">		eventHandlerMap.put(handler.hashCode(), jsHandler);</span>
+<span class="fc" id="L701">		js.call(&quot;bind&quot;, eventType, jsHandler);</span>
+<span class="fc" id="L702">		return this;</span>
 	}
 
 	// https://api.jquery.com/bind/#bind-eventType-eventData-handler
 	public JQuery bind(String eventType, Object eventData, EventHandler handler) {
-<span class="fc" id="L710">		JSObject jsHandler = createFunction(handler);</span>
-<span class="fc" id="L711">		eventHandlerMap.put(jsHandler.hashCode(), jsHandler);</span>
-<span class="fc" id="L712">		js.call(&quot;bind&quot;, eventType, eventData, jsHandler);</span>
-<span class="fc" id="L713">		return this;</span>
+<span class="fc" id="L707">		JSObject jsHandler = createFunction(handler);</span>
+<span class="fc" id="L708">		eventHandlerMap.put(jsHandler.hashCode(), jsHandler);</span>
+<span class="fc" id="L709">		js.call(&quot;bind&quot;, eventType, eventData, jsHandler);</span>
+<span class="fc" id="L710">		return this;</span>
 	}
 	
 	// https://api.jquery.com/blur/
 	public JQuery blur(EventHandler handler) {
-<span class="fc" id="L718">		return bind(&quot;blur&quot;,handler);</span>
+<span class="fc" id="L715">		return bind(&quot;blur&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/blur/
 	public JQuery blur(Object data, EventHandler handler) {
-<span class="fc" id="L723">		return bind(&quot;blur&quot;,data,handler);</span>
+<span class="fc" id="L720">		return bind(&quot;blur&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/blur/
 	public JQuery blur() {
-<span class="fc" id="L728">		js.call(&quot;blur&quot;);</span>
-<span class="fc" id="L729">		return this;</span>
+<span class="fc" id="L725">		js.call(&quot;blur&quot;);</span>
+<span class="fc" id="L726">		return this;</span>
 	}
 
 	// https://api.jquery.com/change/
 	public JQuery change(EventHandler handler) {
-<span class="fc" id="L734">		return bind(&quot;change&quot;,handler);</span>
+<span class="fc" id="L731">		return bind(&quot;change&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/change/
 	public JQuery change(Object data, EventHandler handler) {
-<span class="fc" id="L739">		return bind(&quot;change&quot;,data,handler);</span>
+<span class="fc" id="L736">		return bind(&quot;change&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/change/
 	public JQuery change() {
-<span class="fc" id="L744">		js.call(&quot;change&quot;);</span>
-<span class="fc" id="L745">		return this;</span>
+<span class="fc" id="L741">		js.call(&quot;change&quot;);</span>
+<span class="fc" id="L742">		return this;</span>
 	}
 	
 	// https://api.jquery.com/children/
 	public JQuery children() {
-<span class="fc" id="L750">		return new JQuery(js.call(&quot;children&quot;));</span>
+<span class="fc" id="L747">		return new JQuery(js.call(&quot;children&quot;));</span>
 	}
 	
 	// https://api.jquery.com/children/
 	public JQuery children(String selector) {
-<span class="nc" id="L755">		return new JQuery(js.call(&quot;children&quot;,selector));</span>
+<span class="nc" id="L752">		return new JQuery(js.call(&quot;children&quot;,selector));</span>
 	}
 	
 	// https://api.jquery.com/clearQueue/
 	public JQuery clearQueue() {
-<span class="nc" id="L760">		return new JQuery(js.call(&quot;clearQueue&quot;));</span>
+<span class="nc" id="L757">		return new JQuery(js.call(&quot;clearQueue&quot;));</span>
 	}
 
 	// https://api.jquery.com/clearQueue/
 	public JQuery clearQueue(String queueName) {
-<span class="nc" id="L765">		return new JQuery(js.call(&quot;clearQueue&quot;,queueName));</span>
+<span class="nc" id="L762">		return new JQuery(js.call(&quot;clearQueue&quot;,queueName));</span>
 	}
 
 	// https://api.jquery.com/click/
 	public JQuery click(EventHandler handler) {
-<span class="fc" id="L770">		return bind(&quot;click&quot;,handler);</span>
+<span class="fc" id="L767">		return bind(&quot;click&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/click/
 	public JQuery click(Object data, EventHandler handler) {
-<span class="fc" id="L775">		return bind(&quot;click&quot;,data,handler);</span>
+<span class="fc" id="L772">		return bind(&quot;click&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/click/
 	public JQuery click() {
-<span class="fc" id="L780">		js.call(&quot;click&quot;);</span>
-<span class="fc" id="L781">		return this;</span>
+<span class="fc" id="L777">		js.call(&quot;click&quot;);</span>
+<span class="fc" id="L778">		return this;</span>
 	}
 	
 	// https://api.jquery.com/clone/
 	public JQuery clone() {
-<span class="nc" id="L786">		return clone(false,false);</span>
+<span class="nc" id="L783">		return clone(false,false);</span>
 	}
 	
 	// https://api.jquery.com/clone/
 	public JQuery clone(boolean withDataAndEvents) {
-<span class="nc" id="L791">		return clone(withDataAndEvents,withDataAndEvents);</span>
+<span class="nc" id="L788">		return clone(withDataAndEvents,withDataAndEvents);</span>
 	}
 	
 	// https://api.jquery.com/clone/
 	public JQuery clone(boolean withDataAndEvents, boolean deepWithDataAndEvents) {
-<span class="nc" id="L796">		return new JQuery(js.call(&quot;clone&quot;, withDataAndEvents,deepWithDataAndEvents));</span>
+<span class="nc" id="L793">		return new JQuery(js.call(&quot;clone&quot;, withDataAndEvents,deepWithDataAndEvents));</span>
 	}
 	
 	// https://api.jquery.com/closest/
 	public JQuery closest(String selector) {
-<span class="nc" id="L801">		return new JQuery(js.call(&quot;closest&quot;, selector));</span>
+<span class="nc" id="L798">		return new JQuery(js.call(&quot;closest&quot;, selector));</span>
 	}
 
 	// https://api.jquery.com/closest/
 	public JQuery closest(String selector, Element context) {
-<span class="nc" id="L806">		return new JQuery(js.call(&quot;closest&quot;, selector, context));</span>
+<span class="nc" id="L803">		return new JQuery(js.call(&quot;closest&quot;, selector, context));</span>
 	}
 
 	// https://api.jquery.com/closest/
 	public JQuery closest(JQuery selection) {
-<span class="nc" id="L811">		return new JQuery(js.call(&quot;closest&quot;, selection));</span>
+<span class="nc" id="L808">		return new JQuery(js.call(&quot;closest&quot;, selection));</span>
 	}
 
 	// https://api.jquery.com/closest/
 	public JQuery closest(Element element) {
-<span class="nc" id="L816">		return new JQuery(js.call(&quot;closest&quot;, element));</span>
+<span class="nc" id="L813">		return new JQuery(js.call(&quot;closest&quot;, element));</span>
 	}
 
 	// https://api.jquery.com/contents/
 	public JQuery contents() {
-<span class="nc" id="L821">		return new JQuery(js.call(&quot;contents&quot;));</span>
+<span class="nc" id="L818">		return new JQuery(js.call(&quot;contents&quot;));</span>
 	}
 
 	// https://api.jquery.com/contextmenu/
 	public JQuery contextmenu(EventHandler handler) {
-<span class="fc" id="L826">		bind(&quot;contextmenu&quot;,handler);</span>
-<span class="fc" id="L827">		return this;</span>
+<span class="fc" id="L823">		bind(&quot;contextmenu&quot;,handler);</span>
+<span class="fc" id="L824">		return this;</span>
 	}
 	
 	// https://api.jquery.com/contextmenu/
 	public JQuery contextmenu(Object eventData, EventHandler handler) {
-<span class="fc" id="L832">		bind(&quot;contextmenu&quot;,eventData, handler);</span>
-<span class="fc" id="L833">		return this;</span>
+<span class="fc" id="L829">		bind(&quot;contextmenu&quot;,eventData, handler);</span>
+<span class="fc" id="L830">		return this;</span>
 	}
 	
 	// https://api.jquery.com/contextmenu/
 	public JQuery contextmenu() {
-<span class="fc" id="L838">		js.call(&quot;contextmenu&quot;);</span>
-<span class="fc" id="L839">		return this;</span>
+<span class="fc" id="L835">		js.call(&quot;contextmenu&quot;);</span>
+<span class="fc" id="L836">		return this;</span>
 	}
 	
 	// https://api.jquery.com/css/
 	public String css(String propertyName) {
-<span class="fc" id="L844">		return (String)js.call(&quot;css&quot;, propertyName);</span>
+<span class="fc" id="L841">		return (String)js.call(&quot;css&quot;, propertyName);</span>
 	}
 
 	// https://api.jquery.com/css/#css-propertyNames
 	public PlainObject css(String ... propertyNames) {
-<span class="nc" id="L849">		return new PlainObject((JSObject)js.call(&quot;css&quot;, createArray(propertyNames)));</span>
+<span class="nc" id="L846">		return new PlainObject((JSObject)js.call(&quot;css&quot;, createArray(propertyNames)));</span>
 	}
 
 	// https://api.jquery.com/css/
 	public JQuery css(String propertyName, String value) {
-<span class="fc" id="L854">		js.call(&quot;css&quot;, propertyName, value);</span>
-<span class="fc" id="L855">		return this;</span>
+<span class="fc" id="L851">		js.call(&quot;css&quot;, propertyName, value);</span>
+<span class="fc" id="L852">		return this;</span>
 	}
 
 	// https://api.jquery.com/css/
 	public JQuery css(String propertyName, IntStringStringFunction function) {
-<span class="fc" id="L860">		js.call(&quot;css&quot;, propertyName, createFunction(function));</span>
-<span class="fc" id="L861">		return this;</span>
+<span class="fc" id="L857">		js.call(&quot;css&quot;, propertyName, createFunction(function));</span>
+<span class="fc" id="L858">		return this;</span>
 	}
 	
 	// https://api.jquery.com/css/
 	public JQuery css(PlainObject properties) {
-<span class="fc" id="L866">		js.call(&quot;css&quot;, properties.toJSObject());</span>
-<span class="fc" id="L867">		return this;		</span>
+<span class="fc" id="L863">		js.call(&quot;css&quot;, properties.toJSObject());</span>
+<span class="fc" id="L864">		return this;		</span>
 	}
 	
 	// https://api.jquery.com/data/
 	public JQuery data(String key, Object value) {
-<span class="nc" id="L872">		js.call(&quot;data&quot;, key, value);</span>
-<span class="nc" id="L873">		return this;</span>
+<span class="nc" id="L869">		js.call(&quot;data&quot;, key, value);</span>
+<span class="nc" id="L870">		return this;</span>
 	}
 	
 	// https://api.jquery.com/data/
 	public JQuery data(PlainObject obj) {
-<span class="nc" id="L878">		js.call(&quot;data&quot;, obj.toJSObject());</span>
-<span class="nc" id="L879">		return this;		</span>
+<span class="nc" id="L875">		js.call(&quot;data&quot;, obj.toJSObject());</span>
+<span class="nc" id="L876">		return this;		</span>
 	}
 	
 	// https://api.jquery.com/data/
 	public Object data(String key) {
-<span class="nc" id="L884">		return js.call(&quot;data&quot;,key);</span>
+<span class="nc" id="L881">		return js.call(&quot;data&quot;,key);</span>
 	}
 	
 	// https://api.jquery.com/data/
 	public Object data() {
-<span class="nc" id="L889">		return js.call(&quot;data&quot;);</span>
+<span class="nc" id="L886">		return js.call(&quot;data&quot;);</span>
 	}
 	
 	// https://api.jquery.com/dblclick/
 	public JQuery dblclick(EventHandler handler) {
-<span class="fc" id="L894">		return bind(&quot;dblclick&quot;,handler);</span>
+<span class="fc" id="L891">		return bind(&quot;dblclick&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/dblclick/
 	public JQuery dblclick(Object data, EventHandler handler) {
-<span class="fc" id="L899">		return bind(&quot;dblclick&quot;,data,handler);</span>
+<span class="fc" id="L896">		return bind(&quot;dblclick&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/dblclick/
 	public JQuery dblclick() {
-<span class="fc" id="L904">		js.call(&quot;dblclick&quot;);</span>
-<span class="fc" id="L905">		return this;</span>
+<span class="fc" id="L901">		js.call(&quot;dblclick&quot;);</span>
+<span class="fc" id="L902">		return this;</span>
 	}
 
 	// https://api.jquery.com/delay/
 	public JQuery delay(int duration) {
-<span class="nc" id="L910">		js.call(&quot;delay&quot;, duration);</span>
-<span class="nc" id="L911">		return this;</span>
+<span class="nc" id="L907">		js.call(&quot;delay&quot;, duration);</span>
+<span class="nc" id="L908">		return this;</span>
 	}
 	
 	// https://api.jquery.com/delay/
 	public JQuery delay(int duration, String queueName) {
-<span class="nc" id="L916">		js.call(&quot;delay&quot;, duration, queueName);</span>
-<span class="nc" id="L917">		return this;</span>
+<span class="nc" id="L913">		js.call(&quot;delay&quot;, duration, queueName);</span>
+<span class="nc" id="L914">		return this;</span>
 	}
 	
 	// https://api.jquery.com/delegate/
 	public JQuery delegate(String selector, String eventType, EventHandler handler) {
-<span class="nc" id="L922">		js.call(&quot;delegate&quot;, selector, eventType, createFunction(handler));</span>
-<span class="nc" id="L923">		return this;		</span>
+<span class="nc" id="L919">		js.call(&quot;delegate&quot;, selector, eventType, createFunction(handler));</span>
+<span class="nc" id="L920">		return this;		</span>
 	
 	}
 	
 	// https://api.jquery.com/delegate/
 	public JQuery delegate(String selector, String eventType, Object eventData, EventHandler handler) {
-<span class="fc" id="L929">		js.call(&quot;delegate&quot;, selector, eventType, eventData, createFunction(handler));</span>
-<span class="fc" id="L930">		return this;		</span>
+<span class="fc" id="L926">		js.call(&quot;delegate&quot;, selector, eventType, eventData, createFunction(handler));</span>
+<span class="fc" id="L927">		return this;		</span>
 
 	}
 	
 	// https://api.jquery.com/delegate/
 	public JQuery delegate(String selector, PlainObject events) {
-<span class="nc" id="L936">		js.call(&quot;delegate&quot;, selector, events.toJSObject());</span>
-<span class="nc" id="L937">		return this;</span>
+<span class="nc" id="L933">		js.call(&quot;delegate&quot;, selector, events.toJSObject());</span>
+<span class="nc" id="L934">		return this;</span>
 	}
 	
 	// https://api.jquery.com/dequeue/
 	public JQuery dequeue() {
-<span class="nc" id="L942">		js.call(&quot;dequeue&quot;);</span>
-<span class="nc" id="L943">		return this;</span>
+<span class="nc" id="L939">		js.call(&quot;dequeue&quot;);</span>
+<span class="nc" id="L940">		return this;</span>
 	}
 
 	// https://api.jquery.com/dequeue/
 	public JQuery dequeue(String queueName) {
-<span class="nc" id="L948">		js.call(&quot;dequeue&quot;,queueName);</span>
-<span class="nc" id="L949">		return this;</span>
+<span class="nc" id="L945">		js.call(&quot;dequeue&quot;,queueName);</span>
+<span class="nc" id="L946">		return this;</span>
 	}
 	
 	// https://api.jquery.com/detach/
 	public JQuery detach() {
-<span class="nc" id="L954">		js.call(&quot;detach&quot;);</span>
-<span class="nc" id="L955">		return this;</span>
+<span class="nc" id="L951">		js.call(&quot;detach&quot;);</span>
+<span class="nc" id="L952">		return this;</span>
 	}
 
 	// https://api.jquery.com/detach/
 	public JQuery detach(String selector) {
-<span class="nc" id="L960">		js.call(&quot;detach&quot;,selector);</span>
-<span class="nc" id="L961">		return this;</span>
+<span class="nc" id="L957">		js.call(&quot;detach&quot;,selector);</span>
+<span class="nc" id="L958">		return this;</span>
 	}
 	
 	// https://api.jquery.com/each/
 	public JQuery each(IntElementVoidFunction function) {
-<span class="fc bfc" id="L966" title="All 2 branches covered.">		for (int i=0 ; i&lt;this.length ; i++) {</span>
-<span class="fc" id="L967">			Element el = (Element)js.getSlot(i);</span>
-<span class="fc" id="L968">			function.apply(i, el);</span>
+<span class="fc bfc" id="L963" title="All 2 branches covered.">		for (int i=0 ; i&lt;this.length ; i++) {</span>
+<span class="fc" id="L964">			Element el = (Element)js.getSlot(i);</span>
+<span class="fc" id="L965">			function.apply(i, el);</span>
 		}
-<span class="fc" id="L970">		return this;</span>
+<span class="fc" id="L967">		return this;</span>
 	}
 	
 	// https://api.jquery.com/empty/
 	public JQuery empty() {
-<span class="nc" id="L975">		return new JQuery(js.call(&quot;empty&quot;));</span>
+<span class="nc" id="L972">		return new JQuery(js.call(&quot;empty&quot;));</span>
 	}
 
 	// https://api.jquery.com/end/
 	public JQuery end() {
-<span class="nc" id="L980">		return new JQuery(js.call(&quot;end&quot;));</span>
+<span class="nc" id="L977">		return new JQuery(js.call(&quot;end&quot;));</span>
 	}
 
 	// https://api.jquery.com/eq/
 	public JQuery eq(int index) {
-<span class="nc" id="L985">		return new JQuery(js.call(&quot;eq&quot;, index));</span>
+<span class="nc" id="L982">		return new JQuery(js.call(&quot;eq&quot;, index));</span>
 	}
 
 	// https://api.jquery.com/error/
 	public JQuery error(EventHandler handler) {
-<span class="nc" id="L990">		return bind(&quot;error&quot;, handler);</span>
+<span class="nc" id="L987">		return bind(&quot;error&quot;, handler);</span>
 	}
 
 	// https://api.jquery.com/error/
 	public JQuery error(Object eventData, EventHandler handler) {
-<span class="nc" id="L995">		return bind(&quot;error&quot;, eventData, handler);</span>
+<span class="nc" id="L992">		return bind(&quot;error&quot;, eventData, handler);</span>
 	}
 	
 	// https://api.jquery.com/fadeIn/
 	public JQuery fadeIn() {
-<span class="nc" id="L1000">		js.call(&quot;fadeIn&quot;);</span>
-<span class="nc" id="L1001">		return this;</span>
+<span class="nc" id="L997">		js.call(&quot;fadeIn&quot;);</span>
+<span class="nc" id="L998">		return this;</span>
 	}
 
 	// https://api.jquery.com/fadeIn/
 	public JQuery fadeIn(String duration) {
-<span class="nc" id="L1006">		js.call(&quot;fadeIn&quot;, duration);</span>
-<span class="nc" id="L1007">		return this;</span>
+<span class="nc" id="L1003">		js.call(&quot;fadeIn&quot;, duration);</span>
+<span class="nc" id="L1004">		return this;</span>
 	}
 
 	// https://api.jquery.com/fadeIn/
 	public JQuery fadeIn(String duration, VoidFunction complete) {
-<span class="nc" id="L1012">		js.call(&quot;fadeIn&quot;, duration, createFunction(complete));</span>
-<span class="nc" id="L1013">		return this;</span>
+<span class="nc" id="L1009">		js.call(&quot;fadeIn&quot;, duration, createFunction(complete));</span>
+<span class="nc" id="L1010">		return this;</span>
 	}
 	
 	// https://api.jquery.com/fadeIn/
 	public JQuery fadeIn(AnimationOptions options) {
-<span class="nc" id="L1018">		js.call(&quot;fadeIn&quot;, options.toJSObject());</span>
-<span class="nc" id="L1019">		return this;</span>
+<span class="nc" id="L1015">		js.call(&quot;fadeIn&quot;, options.toJSObject());</span>
+<span class="nc" id="L1016">		return this;</span>
 	}
 
 	// https://api.jquery.com/fadeIn/
 	public JQuery fadeIn(String duration, String easing) {
-<span class="nc" id="L1024">		js.call(&quot;fadeIn&quot;, duration, easing);</span>
-<span class="nc" id="L1025">		return this;</span>
+<span class="nc" id="L1021">		js.call(&quot;fadeIn&quot;, duration, easing);</span>
+<span class="nc" id="L1022">		return this;</span>
 	}
 
 	// https://api.jquery.com/fadeIn/
 	public JQuery fadeIn(String duration, String easing, VoidFunction complete) {
-<span class="nc" id="L1030">		js.call(&quot;fadeIn&quot;, duration, easing, createFunction(complete));</span>
-<span class="nc" id="L1031">		return this;</span>
+<span class="nc" id="L1027">		js.call(&quot;fadeIn&quot;, duration, easing, createFunction(complete));</span>
+<span class="nc" id="L1028">		return this;</span>
 	}
 	
 	// https://api.jquery.com/fadeOut/
 	public JQuery fadeOut() {
-<span class="nc" id="L1036">		js.call(&quot;fadeOut&quot;);</span>
-<span class="nc" id="L1037">		return this;</span>
+<span class="nc" id="L1033">		js.call(&quot;fadeOut&quot;);</span>
+<span class="nc" id="L1034">		return this;</span>
 	}
 
 	// https://api.jquery.com/fadeOut/
 	public JQuery fadeOut(String duration) {
-<span class="nc" id="L1042">		js.call(&quot;fadeOut&quot;, duration);</span>
-<span class="nc" id="L1043">		return this;</span>
+<span class="nc" id="L1039">		js.call(&quot;fadeOut&quot;, duration);</span>
+<span class="nc" id="L1040">		return this;</span>
 	}
 
 	// https://api.jquery.com/fadeOut/
 	public JQuery fadeOut(String duration, VoidFunction complete) {
-<span class="nc" id="L1048">		js.call(&quot;fadeOut&quot;, duration, createFunction(complete));</span>
-<span class="nc" id="L1049">		return this;</span>
+<span class="nc" id="L1045">		js.call(&quot;fadeOut&quot;, duration, createFunction(complete));</span>
+<span class="nc" id="L1046">		return this;</span>
 	}
 	
 	// https://api.jquery.com/fadeOut/
 	public JQuery fadeOut(AnimationOptions options) {
-<span class="nc" id="L1054">		js.call(&quot;fadeOut&quot;, options.toJSObject());</span>
-<span class="nc" id="L1055">		return this;</span>
+<span class="nc" id="L1051">		js.call(&quot;fadeOut&quot;, options.toJSObject());</span>
+<span class="nc" id="L1052">		return this;</span>
 	}
 
 	// https://api.jquery.com/fadeOut/
 	public JQuery fadeOut(String duration, String easing) {
-<span class="nc" id="L1060">		js.call(&quot;fadeOut&quot;, duration, easing);</span>
-<span class="nc" id="L1061">		return this;</span>
+<span class="nc" id="L1057">		js.call(&quot;fadeOut&quot;, duration, easing);</span>
+<span class="nc" id="L1058">		return this;</span>
 	}
 
 	// https://api.jquery.com/fadeOut/
 	public JQuery fadeOut(String duration, String easing, VoidFunction complete) {
-<span class="nc" id="L1066">		js.call(&quot;fadeOut&quot;, duration, easing, createFunction(complete));</span>
-<span class="nc" id="L1067">		return this;</span>
+<span class="nc" id="L1063">		js.call(&quot;fadeOut&quot;, duration, easing, createFunction(complete));</span>
+<span class="nc" id="L1064">		return this;</span>
 	}
 	
 	// https://api.jquery.com/fadeTo/
 	public JQuery fadeTo(String duration, double opacity) {
-<span class="nc" id="L1072">		js.call(&quot;fadeTo&quot;, duration, opacity);</span>
-<span class="nc" id="L1073">		return this;</span>
+<span class="nc" id="L1069">		js.call(&quot;fadeTo&quot;, duration, opacity);</span>
+<span class="nc" id="L1070">		return this;</span>
 	}
 
 	// https://api.jquery.com/fadeTo/
 	public JQuery fadeTo(String duration, double opacity, VoidFunction complete) {
-<span class="fc" id="L1078">		js.call(&quot;fadeTo&quot;, duration, opacity, createFunction(complete));</span>
-<span class="fc" id="L1079">		return this;</span>
+<span class="fc" id="L1075">		js.call(&quot;fadeTo&quot;, duration, opacity, createFunction(complete));</span>
+<span class="fc" id="L1076">		return this;</span>
 	}
 	
 	// https://api.jquery.com/fadeTo/
 	public JQuery fadeTo(String duration, double opacity, String easing) {
-<span class="nc" id="L1084">		js.call(&quot;fadeTo&quot;, duration, opacity, easing);</span>
-<span class="nc" id="L1085">		return this;</span>
+<span class="nc" id="L1081">		js.call(&quot;fadeTo&quot;, duration, opacity, easing);</span>
+<span class="nc" id="L1082">		return this;</span>
 	}
 
 	// https://api.jquery.com/fadeTo/
 	public JQuery fadeTo(String duration, double opacity, String easing, VoidFunction complete) {
-<span class="fc" id="L1090">		js.call(&quot;fadeTo&quot;, duration, opacity, easing, createFunction(complete));</span>
-<span class="fc" id="L1091">		return this;</span>
+<span class="fc" id="L1087">		js.call(&quot;fadeTo&quot;, duration, opacity, easing, createFunction(complete));</span>
+<span class="fc" id="L1088">		return this;</span>
 	}
 	
 	// https://api.jquery.com/fadeToggle/
 	public JQuery fadeToggle() {
-<span class="nc" id="L1096">		js.call(&quot;fadeToggle&quot;);</span>
-<span class="nc" id="L1097">		return this;</span>
+<span class="nc" id="L1093">		js.call(&quot;fadeToggle&quot;);</span>
+<span class="nc" id="L1094">		return this;</span>
 	}
 
 	// https://api.jquery.com/fadeToggle/
 	public JQuery fadeToggle(String duration) {
-<span class="nc" id="L1102">		js.call(&quot;fadeToggle&quot;, duration);</span>
-<span class="nc" id="L1103">		return this;</span>
+<span class="nc" id="L1099">		js.call(&quot;fadeToggle&quot;, duration);</span>
+<span class="nc" id="L1100">		return this;</span>
 	}
 
 	// https://api.jquery.com/fadeToggle/
 	public JQuery fadeToggle(String duration, String easing) {
-<span class="nc" id="L1108">		js.call(&quot;fadeToggle&quot;,duration, easing);</span>
-<span class="nc" id="L1109">		return this;</span>
+<span class="nc" id="L1105">		js.call(&quot;fadeToggle&quot;,duration, easing);</span>
+<span class="nc" id="L1106">		return this;</span>
 	}
 
 	// https://api.jquery.com/fadeToggle/
 	public JQuery fadeToggle(String duration, String easing, VoidFunction complete) {
-<span class="nc" id="L1114">		js.call(&quot;fadeToggle&quot;, duration, easing, createFunction(complete));</span>
-<span class="nc" id="L1115">		return this;</span>
+<span class="nc" id="L1111">		js.call(&quot;fadeToggle&quot;, duration, easing, createFunction(complete));</span>
+<span class="nc" id="L1112">		return this;</span>
 	}
 	
 	// https://api.jquery.com/fadeToggle/
 	public JQuery fadeToggle(AnimationOptions options) {
-<span class="nc" id="L1120">		js.call(&quot;fadeToggle&quot;,options.toJSObject());</span>
-<span class="nc" id="L1121">		return this;</span>
+<span class="nc" id="L1117">		js.call(&quot;fadeToggle&quot;,options.toJSObject());</span>
+<span class="nc" id="L1118">		return this;</span>
 	}
 
 	// https://api.jquery.com/filter/
 	public JQuery filter(String selector) {
-<span class="nc" id="L1126">		return new JQuery(js.call(&quot;filter&quot;, selector));</span>
+<span class="nc" id="L1123">		return new JQuery(js.call(&quot;filter&quot;, selector));</span>
 	}
 
 	// https://api.jquery.com/filter/
 	public JQuery filter(IntElementBooleanFunction selector) {
-<span class="nc" id="L1131">		return new JQuery(js.call(&quot;filter&quot;, createFunction(selector)));</span>
+<span class="nc" id="L1128">		return new JQuery(js.call(&quot;filter&quot;, createFunction(selector)));</span>
 	}
 
 	// https://api.jquery.com/filter/
 	public JQuery filter(Element elemements) {
-<span class="nc" id="L1136">		return new JQuery(js.call(&quot;filter&quot;, elemements));</span>
+<span class="nc" id="L1133">		return new JQuery(js.call(&quot;filter&quot;, elemements));</span>
 	}
 
 	// https://api.jquery.com/filter/
 	public JQuery filter(Element ... elemements) {
-<span class="nc" id="L1141">		return new JQuery(js.call(&quot;filter&quot;, createArray(elemements)));</span>
+<span class="nc" id="L1138">		return new JQuery(js.call(&quot;filter&quot;, createArray(elemements)));</span>
 	}
 
 	// https://api.jquery.com/filter/
 	public JQuery filter(JQuery selector) {
-<span class="nc" id="L1146">		return new JQuery(js.call(&quot;filter&quot;, selector.js));</span>
+<span class="nc" id="L1143">		return new JQuery(js.call(&quot;filter&quot;, selector.js));</span>
 	}
 
 	// https://api.jquery.com/find/
 	public JQuery find(String selector) {
-<span class="nc" id="L1151">		return new JQuery(js.call(&quot;find&quot;, selector));</span>
+<span class="nc" id="L1148">		return new JQuery(js.call(&quot;find&quot;, selector));</span>
 	}
 
 	// https://api.jquery.com/find/
 	public JQuery find(Element element) {
-<span class="nc" id="L1156">		return new JQuery(js.call(&quot;find&quot;, element));</span>
+<span class="nc" id="L1153">		return new JQuery(js.call(&quot;find&quot;, element));</span>
 	}
 
 	// https://api.jquery.com/find/
 	public JQuery find(JQuery element) {
-<span class="nc" id="L1161">		return new JQuery(js.call(&quot;find&quot;, element.js));</span>
+<span class="nc" id="L1158">		return new JQuery(js.call(&quot;find&quot;, element.js));</span>
 	}
 
 	// https://api.jquery.com/finish/
 	public JQuery finish() {
-<span class="nc" id="L1166">		js.call(&quot;finish&quot;);</span>
-<span class="nc" id="L1167">		return this;</span>
+<span class="nc" id="L1163">		js.call(&quot;finish&quot;);</span>
+<span class="nc" id="L1164">		return this;</span>
 	}
 
 	// https://api.jquery.com/finish/
 	public JQuery finish(String queue) {
-<span class="nc" id="L1172">		js.call(&quot;finish&quot;, queue);</span>
-<span class="nc" id="L1173">		return this;</span>
+<span class="nc" id="L1169">		js.call(&quot;finish&quot;, queue);</span>
+<span class="nc" id="L1170">		return this;</span>
 	}
 
 	// https://api.jquery.com/first/
 	public JQuery first() {
-<span class="nc" id="L1178">		return new JQuery(js.call(&quot;first&quot;));</span>
+<span class="nc" id="L1175">		return new JQuery(js.call(&quot;first&quot;));</span>
 
 	}
 	// https://api.jquery.com/focus/
 	public JQuery focus(EventHandler handler) {
-<span class="fc" id="L1183">		return bind(&quot;focus&quot;,handler);</span>
+<span class="fc" id="L1180">		return bind(&quot;focus&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/focus/
 	public JQuery focus(Object data, EventHandler handler) {
-<span class="fc" id="L1188">		return bind(&quot;focus&quot;,data,handler);</span>
+<span class="fc" id="L1185">		return bind(&quot;focus&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/focus/
 	public JQuery focus() {
-<span class="fc" id="L1193">		js.call(&quot;focus&quot;);</span>
-<span class="fc" id="L1194">		return this;</span>
+<span class="fc" id="L1190">		js.call(&quot;focus&quot;);</span>
+<span class="fc" id="L1191">		return this;</span>
 	}
 	
 	// https://api.jquery.com/focusin/
 	public JQuery focusin(EventHandler handler) {
-<span class="fc" id="L1199">		return bind(&quot;focusin&quot;,handler);</span>
+<span class="fc" id="L1196">		return bind(&quot;focusin&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/focusin/
 	public JQuery focusin(Object data, EventHandler handler) {
-<span class="fc" id="L1204">		return bind(&quot;focusin&quot;,data,handler);</span>
+<span class="fc" id="L1201">		return bind(&quot;focusin&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/focusin/
 	public JQuery focusin() {
-<span class="fc" id="L1209">		js.call(&quot;focusin&quot;);</span>
-<span class="fc" id="L1210">		return this;</span>
+<span class="fc" id="L1206">		js.call(&quot;focusin&quot;);</span>
+<span class="fc" id="L1207">		return this;</span>
 	}
 	// https://api.jquery.com/focusout/
 	public JQuery focusout(EventHandler handler) {
-<span class="fc" id="L1214">		return bind(&quot;focusout&quot;,handler);</span>
+<span class="fc" id="L1211">		return bind(&quot;focusout&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/focusout/
 	public JQuery focusout(Object data, EventHandler handler) {
-<span class="fc" id="L1219">		return bind(&quot;focusout&quot;,data,handler);</span>
+<span class="fc" id="L1216">		return bind(&quot;focusout&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/focusout/
 	public JQuery focusout() {
-<span class="fc" id="L1224">		js.call(&quot;focusout&quot;);</span>
-<span class="fc" id="L1225">		return this;</span>
+<span class="fc" id="L1221">		js.call(&quot;focusout&quot;);</span>
+<span class="fc" id="L1222">		return this;</span>
 	}
 	
 	// https://api.jquery.com/get/
 	public Element[] get() {
-<span class="fc" id="L1230">		JSObject els = (JSObject)js.call(&quot;get&quot;);</span>
-<span class="fc" id="L1231">		int count = (int)els.getMember(&quot;length&quot;);</span>
-<span class="fc" id="L1232">		Element[] r = new Element[count];</span>
-<span class="fc bfc" id="L1233" title="All 2 branches covered.">		for (int i=0 ; i&lt;count ; i++) {</span>
-<span class="fc" id="L1234">			r[i] = (Element)els.getSlot(i);</span>
+<span class="fc" id="L1227">		JSObject els = (JSObject)js.call(&quot;get&quot;);</span>
+<span class="fc" id="L1228">		int count = (int)els.getMember(&quot;length&quot;);</span>
+<span class="fc" id="L1229">		Element[] r = new Element[count];</span>
+<span class="fc bfc" id="L1230" title="All 2 branches covered.">		for (int i=0 ; i&lt;count ; i++) {</span>
+<span class="fc" id="L1231">			r[i] = (Element)els.getSlot(i);</span>
 		}
-<span class="fc" id="L1236">		return r;</span>
+<span class="fc" id="L1233">		return r;</span>
 	}
 
 	// https://api.jquery.com/get/
 	public Object get(int i) {
-<span class="fc" id="L1241">		return js.call(&quot;get&quot;, i);</span>
+<span class="fc" id="L1238">		return js.call(&quot;get&quot;, i);</span>
 	}
 	
 	// https://api.jquery.com/has/
 	public JQuery has(String selector) {
-<span class="nc" id="L1246">		return new JQuery(js.call(&quot;has&quot;, selector));</span>
+<span class="nc" id="L1243">		return new JQuery(js.call(&quot;has&quot;, selector));</span>
 	}
 
 	// https://api.jquery.com/has/
 	public JQuery has(Element selector) {
-<span class="nc" id="L1251">		return new JQuery(js.call(&quot;has&quot;, selector));</span>
+<span class="nc" id="L1248">		return new JQuery(js.call(&quot;has&quot;, selector));</span>
 	}
 
 	// https://api.jquery.com/hasClass/#hasClass-className
 	public boolean hasClass(String className) {
-<span class="nc" id="L1256">		return (boolean)js.call(&quot;hasClass&quot;, className);</span>
+<span class="nc" id="L1253">		return (boolean)js.call(&quot;hasClass&quot;, className);</span>
 	}
 
 	// https://api.jquery.com/height/
 	public int height() {
-<span class="nc" id="L1261">		return (int)js.call(&quot;height&quot;);</span>
+<span class="nc" id="L1258">		return (int)js.call(&quot;height&quot;);</span>
 	}
 
 	// https://api.jquery.com/height/
 	public JQuery height(String value) {
-<span class="nc" id="L1266">		js.call(&quot;height&quot;, value);</span>
-<span class="nc" id="L1267">		return this;</span>
+<span class="nc" id="L1263">		js.call(&quot;height&quot;, value);</span>
+<span class="nc" id="L1264">		return this;</span>
 	}
 
 	// https://api.jquery.com/height/
 	public JQuery height(IntIntStringFunction function) {
-<span class="nc" id="L1272">		js.call(&quot;height&quot;, createFunction(function));</span>
-<span class="nc" id="L1273">		return this;</span>
+<span class="nc" id="L1269">		js.call(&quot;height&quot;, createFunction(function));</span>
+<span class="nc" id="L1270">		return this;</span>
 	}
 
 	// https://api.jquery.com/hide/
 	public JQuery hide() {
-<span class="nc" id="L1278">		js.call(&quot;hide&quot;);</span>
-<span class="nc" id="L1279">		return this;</span>
+<span class="nc" id="L1275">		js.call(&quot;hide&quot;);</span>
+<span class="nc" id="L1276">		return this;</span>
 	}
 
 	// https://api.jquery.com/hide/
 	public JQuery hide(String duration) {
-<span class="nc" id="L1284">		js.call(&quot;hide&quot;, duration);</span>
-<span class="nc" id="L1285">		return this;</span>
+<span class="nc" id="L1281">		js.call(&quot;hide&quot;, duration);</span>
+<span class="nc" id="L1282">		return this;</span>
 	}
 
 	// https://api.jquery.com/hide/
 	public JQuery hide(String duration, VoidFunction complete) {
-<span class="nc" id="L1290">		js.call(&quot;hide&quot;, duration, createFunction(complete));</span>
-<span class="nc" id="L1291">		return this;</span>
+<span class="nc" id="L1287">		js.call(&quot;hide&quot;, duration, createFunction(complete));</span>
+<span class="nc" id="L1288">		return this;</span>
 	}
 	
 	// https://api.jquery.com/hide/
 	public JQuery hide(AnimationOptions options) {
-<span class="nc" id="L1296">		js.call(&quot;hide&quot;, options.toJSObject());</span>
-<span class="nc" id="L1297">		return this;</span>
+<span class="nc" id="L1293">		js.call(&quot;hide&quot;, options.toJSObject());</span>
+<span class="nc" id="L1294">		return this;</span>
 	}
 
 	// https://api.jquery.com/hide/
 	public JQuery hide(String duration, String easing) {
-<span class="nc" id="L1302">		js.call(&quot;hide&quot;, duration, easing);</span>
-<span class="nc" id="L1303">		return this;</span>
+<span class="nc" id="L1299">		js.call(&quot;hide&quot;, duration, easing);</span>
+<span class="nc" id="L1300">		return this;</span>
 	}
 
 	// https://api.jquery.com/hide/
 	public JQuery hide(String duration, String easing, VoidFunction complete) {
-<span class="nc" id="L1308">		js.call(&quot;hide&quot;, duration, easing,createFunction(complete));</span>
-<span class="nc" id="L1309">		return this;</span>
+<span class="nc" id="L1305">		js.call(&quot;hide&quot;, duration, easing,createFunction(complete));</span>
+<span class="nc" id="L1306">		return this;</span>
 	}
 
 	// https://api.jquery.com/hover/
 	public JQuery hover(EventHandler handler) {
-<span class="fc" id="L1314">		return bind(&quot;hover&quot;,handler);</span>
+<span class="fc" id="L1311">		return bind(&quot;hover&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/hover/
 	public JQuery hover(Object data, EventHandler handler) {
-<span class="fc" id="L1319">		return bind(&quot;hover&quot;,data,handler);</span>
+<span class="fc" id="L1316">		return bind(&quot;hover&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/hover/
 	public JQuery hover() {
-<span class="fc" id="L1324">		js.call(&quot;hover&quot;);</span>
-<span class="fc" id="L1325">		return this;</span>
+<span class="fc" id="L1321">		js.call(&quot;hover&quot;);</span>
+<span class="fc" id="L1322">		return this;</span>
 	}
 
 	// https://api.jquery.com/html/
 	public String html() {
-<span class="nc" id="L1330">		return (String)js.call(&quot;html&quot;);</span>
+<span class="nc" id="L1327">		return (String)js.call(&quot;html&quot;);</span>
 	}
 
 	// https://api.jquery.com/html/
 	public JQuery html(String htmlString) {
-<span class="nc" id="L1335">		return new JQuery(js.call(&quot;html&quot;, htmlString));</span>
+<span class="nc" id="L1332">		return new JQuery(js.call(&quot;html&quot;, htmlString));</span>
 	}
 
 	// https://api.jquery.com/html/
 	public JQuery html(IntStringStringFunction function) {
-<span class="nc" id="L1340">		return new JQuery(js.call(&quot;html&quot;,createFunction(function)));</span>
+<span class="nc" id="L1337">		return new JQuery(js.call(&quot;html&quot;,createFunction(function)));</span>
 	}
 
 	// https://api.jquery.com/index/
 	public int index() {
-<span class="nc" id="L1345">		return (int)js.call(&quot;index&quot;);</span>
+<span class="nc" id="L1342">		return (int)js.call(&quot;index&quot;);</span>
 	}
 
 	// https://api.jquery.com/index/
 	public int index(String selector) {
-<span class="nc" id="L1350">		return (int)js.call(&quot;index&quot;, selector);</span>
+<span class="nc" id="L1347">		return (int)js.call(&quot;index&quot;, selector);</span>
 	}
 
 	// https://api.jquery.com/index/
 	public int index(Element element) {
-<span class="nc" id="L1355">		return (int)js.call(&quot;index&quot;, element);</span>
+<span class="nc" id="L1352">		return (int)js.call(&quot;index&quot;, element);</span>
 	}
 	
 	// https://api.jquery.com/index/
 	public int index(JQuery element) {
-<span class="nc" id="L1360">		return (int)js.call(&quot;index&quot;, element.js);</span>
+<span class="nc" id="L1357">		return (int)js.call(&quot;index&quot;, element.js);</span>
 	}
 
 	// https://api.jquery.com/innerHeight/
 	public int innerHeight() {
-<span class="nc" id="L1365">		return (int)js.call(&quot;innerHeight&quot;);</span>
+<span class="nc" id="L1362">		return (int)js.call(&quot;innerHeight&quot;);</span>
 	}
 
 	// https://api.jquery.com/innerHeight/
 	public JQuery innerHeight(String height) {
-<span class="nc" id="L1370">		js.call(&quot;innerHeight&quot;, height);</span>
-<span class="nc" id="L1371">		return this;</span>
+<span class="nc" id="L1367">		js.call(&quot;innerHeight&quot;, height);</span>
+<span class="nc" id="L1368">		return this;</span>
 	}
 
 	// https://api.jquery.com/innerHeight/
 	public JQuery innerHeight(int height) {
-<span class="nc" id="L1376">		js.call(&quot;innerHeight&quot;, height);</span>
-<span class="nc" id="L1377">		return this;</span>
+<span class="nc" id="L1373">		js.call(&quot;innerHeight&quot;, height);</span>
+<span class="nc" id="L1374">		return this;</span>
 	}
 
 	// https://api.jquery.com/innerHeight/
 	public JQuery innerHeight(IntIntStringFunction function) {
-<span class="nc" id="L1382">		js.call(&quot;innerHeight&quot;, createFunction(function));</span>
-<span class="nc" id="L1383">		return this;</span>
+<span class="nc" id="L1379">		js.call(&quot;innerHeight&quot;, createFunction(function));</span>
+<span class="nc" id="L1380">		return this;</span>
 	}
 
 	// https://api.jquery.com/innerWidth/
 	public int innerWidth() {
-<span class="nc" id="L1388">		return (int)js.call(&quot;innerWidth&quot;);</span>
+<span class="nc" id="L1385">		return (int)js.call(&quot;innerWidth&quot;);</span>
 	}
 
 	// https://api.jquery.com/innerWidth/
 	public JQuery innerWidth(String height) {
-<span class="nc" id="L1393">		js.call(&quot;innerWidth&quot;, height);</span>
-<span class="nc" id="L1394">		return this;</span>
+<span class="nc" id="L1390">		js.call(&quot;innerWidth&quot;, height);</span>
+<span class="nc" id="L1391">		return this;</span>
 	}
 
 	// https://api.jquery.com/innerWidth/
 	public JQuery innerWidth(int height) {
-<span class="nc" id="L1399">		js.call(&quot;innerWidth&quot;, height);</span>
-<span class="nc" id="L1400">		return this;</span>
+<span class="nc" id="L1396">		js.call(&quot;innerWidth&quot;, height);</span>
+<span class="nc" id="L1397">		return this;</span>
 	}
 
 	// https://api.jquery.com/innerWidth/
 	public JQuery innerWidth(IntIntStringFunction function) {
-<span class="nc" id="L1405">		js.call(&quot;innerWidth&quot;, createFunction(function));</span>
-<span class="nc" id="L1406">		return this;</span>
+<span class="nc" id="L1402">		js.call(&quot;innerWidth&quot;, createFunction(function));</span>
+<span class="nc" id="L1403">		return this;</span>
 	}
 	
 	// https://api.jquery.com/insertAfter/
 	public JQuery insertAfter(String target) {
-<span class="nc" id="L1411">		return new JQuery(js.call(&quot;insertAfter&quot;, target));</span>
+<span class="nc" id="L1408">		return new JQuery(js.call(&quot;insertAfter&quot;, target));</span>
 	}
 	
 	// https://api.jquery.com/insertAfter/
 	public JQuery insertAfter(Element target) {
-<span class="nc" id="L1416">		return new JQuery(js.call(&quot;insertAfter&quot;, target));</span>
+<span class="nc" id="L1413">		return new JQuery(js.call(&quot;insertAfter&quot;, target));</span>
 	}
 	// https://api.jquery.com/insertAfter/
 	public JQuery insertAfter(Element ... target) {
-<span class="nc" id="L1420">		return new JQuery(js.call(&quot;insertAfter&quot;, createArray(target)));</span>
+<span class="nc" id="L1417">		return new JQuery(js.call(&quot;insertAfter&quot;, createArray(target)));</span>
 	}
 	// https://api.jquery.com/insertAfter/
 	public JQuery insertAfter(JQuery target) {
-<span class="nc" id="L1424">		return new JQuery(js.call(&quot;insertAfter&quot;, target.js));</span>
+<span class="nc" id="L1421">		return new JQuery(js.call(&quot;insertAfter&quot;, target.js));</span>
 	}
 
 	// https://api.jquery.com/insertBefore/
 	public JQuery insertBefore(String target) {
-<span class="nc" id="L1429">		return new JQuery(js.call(&quot;insertBefore&quot;, target));</span>
+<span class="nc" id="L1426">		return new JQuery(js.call(&quot;insertBefore&quot;, target));</span>
 	}
 	
 	// https://api.jquery.com/insertBefore/
 	public JQuery insertBefore(Element target) {
-<span class="nc" id="L1434">		return new JQuery(js.call(&quot;insertBefore&quot;, target));</span>
+<span class="nc" id="L1431">		return new JQuery(js.call(&quot;insertBefore&quot;, target));</span>
 	}
 	// https://api.jquery.com/insertBefore/
 	public JQuery insertBefore(Element ... target) {
-<span class="nc" id="L1438">		return new JQuery(js.call(&quot;insertBefore&quot;, createArray(target)));</span>
+<span class="nc" id="L1435">		return new JQuery(js.call(&quot;insertBefore&quot;, createArray(target)));</span>
 	}
 	// https://api.jquery.com/insertBefore/
 	public JQuery insertBefore(JQuery target) {
-<span class="nc" id="L1442">		return new JQuery(js.call(&quot;insertBefore&quot;, target.js));</span>
+<span class="nc" id="L1439">		return new JQuery(js.call(&quot;insertBefore&quot;, target.js));</span>
 	}
 	
 	// https://api.jquery.com/is/
 	public boolean is(String selector) {
-<span class="nc" id="L1447">		return (boolean)js.call(&quot;is&quot;, selector);</span>
+<span class="nc" id="L1444">		return (boolean)js.call(&quot;is&quot;, selector);</span>
 	}
 
 	// https://api.jquery.com/is/
 	public boolean is(IntElementBooleanFunction function) {
-<span class="nc" id="L1452">		return (boolean)js.call(&quot;is&quot;, createFunction(function));</span>
+<span class="nc" id="L1449">		return (boolean)js.call(&quot;is&quot;, createFunction(function));</span>
 	}
 
 	// https://api.jquery.com/is/
 	public boolean is(JQuery selection) {
-<span class="nc" id="L1457">		return (boolean)js.call(&quot;is&quot;, selection.js);</span>
+<span class="nc" id="L1454">		return (boolean)js.call(&quot;is&quot;, selection.js);</span>
 	}
 
 	// https://api.jquery.com/is/
 	public boolean is(Element ... elements) {
-<span class="nc" id="L1462">		return (boolean)js.call(&quot;is&quot;, createArray(elements));</span>
+<span class="nc" id="L1459">		return (boolean)js.call(&quot;is&quot;, createArray(elements));</span>
 	}
 
 	// https://api.jquery.com/keydown/
 	public JQuery keydown(EventHandler handler) {
-<span class="fc" id="L1467">		return bind(&quot;keydown&quot;,handler);</span>
+<span class="fc" id="L1464">		return bind(&quot;keydown&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/keydown/
 	public JQuery keydown(Object data, EventHandler handler) {
-<span class="fc" id="L1472">		return bind(&quot;keydown&quot;,data,handler);</span>
+<span class="fc" id="L1469">		return bind(&quot;keydown&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/keydown/
 	public JQuery keydown() {
-<span class="fc" id="L1477">		js.call(&quot;keydown&quot;);</span>
-<span class="fc" id="L1478">		return this;</span>
+<span class="fc" id="L1474">		js.call(&quot;keydown&quot;);</span>
+<span class="fc" id="L1475">		return this;</span>
 	}
 	// https://api.jquery.com/keypress/
 	public JQuery keypress(EventHandler handler) {
-<span class="fc" id="L1482">		return bind(&quot;keypress&quot;,handler);</span>
+<span class="fc" id="L1479">		return bind(&quot;keypress&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/keypress/
 	public JQuery keypress(Object data, EventHandler handler) {
-<span class="fc" id="L1487">		return bind(&quot;keypress&quot;,data,handler);</span>
+<span class="fc" id="L1484">		return bind(&quot;keypress&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/keypress/
 	public JQuery keypress() {
-<span class="fc" id="L1492">		js.call(&quot;keypress&quot;);</span>
-<span class="fc" id="L1493">		return this;</span>
+<span class="fc" id="L1489">		js.call(&quot;keypress&quot;);</span>
+<span class="fc" id="L1490">		return this;</span>
 	}
 	// https://api.jquery.com/keyup/
 	public JQuery keyup(EventHandler handler) {
-<span class="fc" id="L1497">		return bind(&quot;keyup&quot;,handler);</span>
+<span class="fc" id="L1494">		return bind(&quot;keyup&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/keyup/
 	public JQuery keyup(Object data, EventHandler handler) {
-<span class="fc" id="L1502">		return bind(&quot;keyup&quot;,data,handler);</span>
+<span class="fc" id="L1499">		return bind(&quot;keyup&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/keyup/
 	public JQuery keyup() {
-<span class="fc" id="L1507">		js.call(&quot;keyup&quot;);</span>
-<span class="fc" id="L1508">		return this;</span>
+<span class="fc" id="L1504">		js.call(&quot;keyup&quot;);</span>
+<span class="fc" id="L1505">		return this;</span>
 	}
 	
 	// https://api.jquery.com/last/
 	public JQuery last() {
-<span class="nc" id="L1513">		return new JQuery(js.call(&quot;last&quot;));</span>
+<span class="nc" id="L1510">		return new JQuery(js.call(&quot;last&quot;));</span>
 	}
 
 	// https://api.jquery.com/map/
 	public JQuery map(IntElementObjectFunction function) {
-<span class="fc" id="L1518">		return new JQuery(js.call(&quot;map&quot;, createFunction(function)));</span>
+<span class="fc" id="L1515">		return new JQuery(js.call(&quot;map&quot;, createFunction(function)));</span>
 
 	}
 	// https://api.jquery.com/mousedown/
 	public JQuery mousedown(EventHandler handler) {
-<span class="fc" id="L1523">		return bind(&quot;mousedown&quot;,handler);</span>
+<span class="fc" id="L1520">		return bind(&quot;mousedown&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/mousedown/
 	public JQuery mousedown(Object data, EventHandler handler) {
-<span class="fc" id="L1528">		return bind(&quot;mousedown&quot;,data,handler);</span>
+<span class="fc" id="L1525">		return bind(&quot;mousedown&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/mousedown/
 	public JQuery mousedown() {
-<span class="fc" id="L1533">		js.call(&quot;mousedown&quot;);</span>
-<span class="fc" id="L1534">		return this;</span>
+<span class="fc" id="L1530">		js.call(&quot;mousedown&quot;);</span>
+<span class="fc" id="L1531">		return this;</span>
 	}
 	// https://api.jquery.com/mouseenter/
 	public JQuery mouseenter(EventHandler handler) {
-<span class="fc" id="L1538">		return bind(&quot;mouseenter&quot;,handler);</span>
+<span class="fc" id="L1535">		return bind(&quot;mouseenter&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/mouseenter/
 	public JQuery mouseenter(Object data, EventHandler handler) {
-<span class="fc" id="L1543">		return bind(&quot;mouseenter&quot;,data,handler);</span>
+<span class="fc" id="L1540">		return bind(&quot;mouseenter&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/mouseenter/
 	public JQuery mouseenter() {
-<span class="fc" id="L1548">		js.call(&quot;mouseenter&quot;);</span>
-<span class="fc" id="L1549">		return this;</span>
+<span class="fc" id="L1545">		js.call(&quot;mouseenter&quot;);</span>
+<span class="fc" id="L1546">		return this;</span>
 	}
 	// https://api.jquery.com/mouseleave/
 	public JQuery mouseleave(EventHandler handler) {
-<span class="fc" id="L1553">		return bind(&quot;mouseleave&quot;,handler);</span>
+<span class="fc" id="L1550">		return bind(&quot;mouseleave&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/mouseleave/
 	public JQuery mouseleave(Object data, EventHandler handler) {
-<span class="fc" id="L1558">		return bind(&quot;mouseleave&quot;,data,handler);</span>
+<span class="fc" id="L1555">		return bind(&quot;mouseleave&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/mouseleave/
 	public JQuery mouseleave() {
-<span class="fc" id="L1563">		js.call(&quot;mouseleave&quot;);</span>
-<span class="fc" id="L1564">		return this;</span>
+<span class="fc" id="L1560">		js.call(&quot;mouseleave&quot;);</span>
+<span class="fc" id="L1561">		return this;</span>
 	}
 	// https://api.jquery.com/mousemove/
 	public JQuery mousemove(EventHandler handler) {
-<span class="fc" id="L1568">		return bind(&quot;mousemove&quot;,handler);</span>
+<span class="fc" id="L1565">		return bind(&quot;mousemove&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/mousemove/
 	public JQuery mousemove(Object data, EventHandler handler) {
-<span class="fc" id="L1573">		return bind(&quot;mousemove&quot;,data,handler);</span>
+<span class="fc" id="L1570">		return bind(&quot;mousemove&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/mousemove/
 	public JQuery mousemove() {
-<span class="fc" id="L1578">		js.call(&quot;mousemove&quot;);</span>
-<span class="fc" id="L1579">		return this;</span>
+<span class="fc" id="L1575">		js.call(&quot;mousemove&quot;);</span>
+<span class="fc" id="L1576">		return this;</span>
 	}
 	// https://api.jquery.com/mouseout/
 	public JQuery mouseout(EventHandler handler) {
-<span class="fc" id="L1583">		return bind(&quot;mouseout&quot;,handler);</span>
+<span class="fc" id="L1580">		return bind(&quot;mouseout&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/mouseout/
 	public JQuery mouseout(Object data, EventHandler handler) {
-<span class="fc" id="L1588">		return bind(&quot;mouseout&quot;,data,handler);</span>
+<span class="fc" id="L1585">		return bind(&quot;mouseout&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/mouseout/
 	public JQuery mouseout() {
-<span class="fc" id="L1593">		js.call(&quot;mouseout&quot;);</span>
-<span class="fc" id="L1594">		return this;</span>
+<span class="fc" id="L1590">		js.call(&quot;mouseout&quot;);</span>
+<span class="fc" id="L1591">		return this;</span>
 	}
 	// https://api.jquery.com/mouseover/
 	public JQuery mouseover(EventHandler handler) {
-<span class="fc" id="L1598">		return bind(&quot;mouseover&quot;,handler);</span>
+<span class="fc" id="L1595">		return bind(&quot;mouseover&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/mouseover/
 	public JQuery mouseover(Object data, EventHandler handler) {
-<span class="fc" id="L1603">		return bind(&quot;mouseover&quot;,data,handler);</span>
+<span class="fc" id="L1600">		return bind(&quot;mouseover&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/mouseover/
 	public JQuery mouseover() {
-<span class="fc" id="L1608">		js.call(&quot;mouseover&quot;);</span>
-<span class="fc" id="L1609">		return this;</span>
+<span class="fc" id="L1605">		js.call(&quot;mouseover&quot;);</span>
+<span class="fc" id="L1606">		return this;</span>
 	}
 	// https://api.jquery.com/mouseup/
 	public JQuery mouseup(EventHandler handler) {
-<span class="fc" id="L1613">		return bind(&quot;mouseup&quot;,handler);</span>
+<span class="fc" id="L1610">		return bind(&quot;mouseup&quot;,handler);</span>
 	}
 	
 	// https://api.jquery.com/mouseup/
 	public JQuery mouseup(Object data, EventHandler handler) {
-<span class="fc" id="L1618">		return bind(&quot;mouseup&quot;,data,handler);</span>
+<span class="fc" id="L1615">		return bind(&quot;mouseup&quot;,data,handler);</span>
 	}
 	
 	// https://api.jquery.com/mouseup/
 	public JQuery mouseup() {
-<span class="fc" id="L1623">		js.call(&quot;mouseup&quot;);</span>
-<span class="fc" id="L1624">		return this;</span>
+<span class="fc" id="L1620">		js.call(&quot;mouseup&quot;);</span>
+<span class="fc" id="L1621">		return this;</span>
 	}
 	
 	// https://api.jquery.com/next/
 	public JQuery next() {
-<span class="nc" id="L1629">		return new JQuery(js.call(&quot;next&quot;));</span>
+<span class="nc" id="L1626">		return new JQuery(js.call(&quot;next&quot;));</span>
 	}
 
 	// https://api.jquery.com/next/
 	public JQuery next(String selector) {
-<span class="nc" id="L1634">		return new JQuery(js.call(&quot;next&quot;,selector));</span>
+<span class="nc" id="L1631">		return new JQuery(js.call(&quot;next&quot;,selector));</span>
 	}
 
 	// https://api.jquery.com/nextAll/
 	public JQuery nextAll() {
-<span class="nc" id="L1639">		return new JQuery(js.call(&quot;nextAll&quot;));</span>
+<span class="nc" id="L1636">		return new JQuery(js.call(&quot;nextAll&quot;));</span>
 	}
 
 	// https://api.jquery.com/nextAll/
 	public JQuery nextAll(String selector) {
-<span class="nc" id="L1644">		return new JQuery(js.call(&quot;nextAll&quot;,selector));</span>
+<span class="nc" id="L1641">		return new JQuery(js.call(&quot;nextAll&quot;,selector));</span>
 	}
 
 	// https://api.jquery.com/nextUntil/
 	public JQuery nextUntil() {
-<span class="nc" id="L1649">		return new JQuery(js.call(&quot;nextUntil&quot;));</span>
+<span class="nc" id="L1646">		return new JQuery(js.call(&quot;nextUntil&quot;));</span>
 	}
 
 	// https://api.jquery.com/nextUntil/
 	public JQuery nextUntil(String selector) {
-<span class="nc" id="L1654">		return new JQuery(js.call(&quot;nextUntil&quot;,selector));</span>
+<span class="nc" id="L1651">		return new JQuery(js.call(&quot;nextUntil&quot;,selector));</span>
 	}
 
 	// https://api.jquery.com/nextUntil/
 	public JQuery nextUntil(String selector, String filter) {
-<span class="nc" id="L1659">		return new JQuery(js.call(&quot;nextUntil&quot;,selector,filter));</span>
+<span class="nc" id="L1656">		return new JQuery(js.call(&quot;nextUntil&quot;,selector,filter));</span>
 	}
 
 	// https://api.jquery.com/nextUntil/
 	public JQuery nextUntil(Element element) {
-<span class="nc" id="L1664">		return new JQuery(js.call(&quot;nextUntil&quot;, element));</span>
+<span class="nc" id="L1661">		return new JQuery(js.call(&quot;nextUntil&quot;, element));</span>
 	}
 
 	// https://api.jquery.com/nextUntil/
 	public JQuery nextUntil(Element element, String filter) {
-<span class="nc" id="L1669">		return new JQuery(js.call(&quot;nextUntil&quot;, element, filter));</span>
+<span class="nc" id="L1666">		return new JQuery(js.call(&quot;nextUntil&quot;, element, filter));</span>
 	}
 
 	// https://api.jquery.com/nextUntil/
 	public JQuery nextUntil(JQuery element) {
-<span class="nc" id="L1674">		return new JQuery(js.call(&quot;nextUntil&quot;, element.js));</span>
+<span class="nc" id="L1671">		return new JQuery(js.call(&quot;nextUntil&quot;, element.js));</span>
 	}
 
 	// https://api.jquery.com/nextUntil/
 	public JQuery nextUntil(JQuery element, String filter) {
-<span class="nc" id="L1679">		return new JQuery(js.call(&quot;nextUntil&quot;, element, filter));</span>
+<span class="nc" id="L1676">		return new JQuery(js.call(&quot;nextUntil&quot;, element, filter));</span>
 	}
 
 	// https://api.jquery.com/not/
 	public JQuery not(String selector) {
-<span class="nc" id="L1684">		return new JQuery(js.call(&quot;not&quot;, selector));</span>
+<span class="nc" id="L1681">		return new JQuery(js.call(&quot;not&quot;, selector));</span>
 	}
 
 	// https://api.jquery.com/not/
 	public JQuery not(IntElementBooleanFunction function) {
-<span class="nc" id="L1689">		return new JQuery(js.call(&quot;not&quot;, createFunction(function)));</span>
+<span class="nc" id="L1686">		return new JQuery(js.call(&quot;not&quot;, createFunction(function)));</span>
 	}
 
 	// https://api.jquery.com/not/
 	public JQuery not(JQuery selection) {
-<span class="nc" id="L1694">		return new JQuery(js.call(&quot;not&quot;, selection.js));</span>
+<span class="nc" id="L1691">		return new JQuery(js.call(&quot;not&quot;, selection.js));</span>
 	}
 
 	// https://api.jquery.com/off/
 	public JQuery off(String events) {
-<span class="nc" id="L1699">		js.call(&quot;off&quot;, events);</span>
-<span class="nc" id="L1700">		return this;</span>
+<span class="nc" id="L1696">		js.call(&quot;off&quot;, events);</span>
+<span class="nc" id="L1697">		return this;</span>
 	}
 	
 	// https://api.jquery.com/off/
 	public JQuery off(String events, String selector) {
-<span class="nc" id="L1705">		js.call(&quot;off&quot;, events, selector);</span>
-<span class="nc" id="L1706">		return this;</span>
+<span class="nc" id="L1702">		js.call(&quot;off&quot;, events, selector);</span>
+<span class="nc" id="L1703">		return this;</span>
 	}
 	
 	// https://api.jquery.com/off/
 	public JQuery off(String events, EventHandler handler) {
-<span class="nc" id="L1711">		js.call(&quot;off&quot;, events, createFunction(handler));</span>
-<span class="nc" id="L1712">		return this;</span>
+<span class="nc" id="L1708">		js.call(&quot;off&quot;, events, createFunction(handler));</span>
+<span class="nc" id="L1709">		return this;</span>
 	}
 	
 	// https://api.jquery.com/off/
 	public JQuery off(String events, String selector, EventHandler handler) {
-<span class="nc" id="L1717">		js.call(&quot;off&quot;, events, selector, createFunction(handler));</span>
-<span class="nc" id="L1718">		return this;</span>
+<span class="nc" id="L1714">		js.call(&quot;off&quot;, events, selector, createFunction(handler));</span>
+<span class="nc" id="L1715">		return this;</span>
 	}
 	
 	// https://api.jquery.com/off/
 	public JQuery off(PlainObject events) {
-<span class="nc" id="L1723">		js.call(&quot;off&quot;, events.toJSObject());</span>
-<span class="nc" id="L1724">		return this;</span>
+<span class="nc" id="L1720">		js.call(&quot;off&quot;, events.toJSObject());</span>
+<span class="nc" id="L1721">		return this;</span>
 	}
 	
 	// https://api.jquery.com/off/
 	public JQuery off(PlainObject events, String selector) {
-<span class="nc" id="L1729">		js.call(&quot;off&quot;, events.toJSObject(), selector);</span>
-<span class="nc" id="L1730">		return this;</span>
+<span class="nc" id="L1726">		js.call(&quot;off&quot;, events.toJSObject(), selector);</span>
+<span class="nc" id="L1727">		return this;</span>
 	}
 	
 	// https://api.jquery.com/off/
 	public JQuery off(Event event) {
-<span class="nc" id="L1735">		js.call(&quot;off&quot;, event);</span>
-<span class="nc" id="L1736">		return this;</span>
+<span class="nc" id="L1732">		js.call(&quot;off&quot;, event);</span>
+<span class="nc" id="L1733">		return this;</span>
 	}
 
 	// https://api.jquery.com/off/
 	public JQuery off() {
-<span class="nc" id="L1741">		js.call(&quot;off&quot;);</span>
-<span class="nc" id="L1742">		return this;</span>
+<span class="nc" id="L1738">		js.call(&quot;off&quot;);</span>
+<span class="nc" id="L1739">		return this;</span>
 	}
 	
 	// https://api.jquery.com/offset/
 	public Offset offset() {
-<span class="nc" id="L1747">		return new Offset((JSObject)js.call(&quot;offset&quot;));</span>
+<span class="nc" id="L1744">		return new Offset((JSObject)js.call(&quot;offset&quot;));</span>
 	}
 	
 	// https://api.jquery.com/offset/
 	public JQuery offset(Offset coordinates) {
-<span class="nc" id="L1752">		js.call(&quot;offset&quot;, coordinates);</span>
-<span class="nc" id="L1753">		return this;</span>
+<span class="nc" id="L1749">		js.call(&quot;offset&quot;, coordinates);</span>
+<span class="nc" id="L1750">		return this;</span>
 	}
 
 	// https://api.jquery.com/offset/
 	public JQuery offset(IntOffsetOffsetFunction function) {
-<span class="nc" id="L1758">		js.call(&quot;offset&quot;, createFunction(function));</span>
-<span class="nc" id="L1759">		return this;</span>
+<span class="nc" id="L1755">		js.call(&quot;offset&quot;, createFunction(function));</span>
+<span class="nc" id="L1756">		return this;</span>
 	}
 
 	// https://api.jquery.com/offsetParent/
 	public JQuery offsetParent() {
-<span class="nc" id="L1764">		return new JQuery(js.call(&quot;offsetParent&quot;));</span>
+<span class="nc" id="L1761">		return new JQuery(js.call(&quot;offsetParent&quot;));</span>
 	}
 
 	// https://api.jquery.com/on/
 	public JQuery on(String events, EventHandler handler) {
-<span class="nc" id="L1769">		js.call(&quot;on&quot;, events, createFunction(handler));</span>
-<span class="nc" id="L1770">		return this;		</span>
+<span class="nc" id="L1766">		js.call(&quot;on&quot;, events, createFunction(handler));</span>
+<span class="nc" id="L1767">		return this;		</span>
 	}
 
 	// https://api.jquery.com/on/
 	public JQuery on(String events, String selector, EventHandler handler) {
-<span class="nc" id="L1775">		js.call(&quot;on&quot;, events, selector, createFunction(handler));</span>
-<span class="nc" id="L1776">		return this;		</span>
+<span class="nc" id="L1772">		js.call(&quot;on&quot;, events, selector, createFunction(handler));</span>
+<span class="nc" id="L1773">		return this;		</span>
 	}
 
 	// https://api.jquery.com/on/
 	public JQuery on(String events, Object data, EventHandler handler) {
-<span class="nc" id="L1781">		js.call(&quot;on&quot;, events, data, createFunction(handler));</span>
-<span class="nc" id="L1782">		return this;		</span>
+<span class="nc" id="L1778">		js.call(&quot;on&quot;, events, data, createFunction(handler));</span>
+<span class="nc" id="L1779">		return this;		</span>
 	}
 
 	// https://api.jquery.com/on/
 	public JQuery on(String events, String selector, Object data, EventHandler handler) {
-<span class="nc" id="L1787">		js.call(&quot;on&quot;, events, selector, data, createFunction(handler));</span>
-<span class="nc" id="L1788">		return this;		</span>
+<span class="nc" id="L1784">		js.call(&quot;on&quot;, events, selector, data, createFunction(handler));</span>
+<span class="nc" id="L1785">		return this;		</span>
 	}
 	
 	// https://api.jquery.com/on/
 	public JQuery on(PlainObject events) {
-<span class="nc" id="L1793">		js.call(&quot;on&quot;, events.toJSObject());</span>
-<span class="nc" id="L1794">		return this;		</span>
+<span class="nc" id="L1790">		js.call(&quot;on&quot;, events.toJSObject());</span>
+<span class="nc" id="L1791">		return this;		</span>
 	}
 
 	// https://api.jquery.com/on/
 	public JQuery on(PlainObject events, String selector) {
-<span class="nc" id="L1799">		js.call(&quot;on&quot;, events.toJSObject(), selector);</span>
-<span class="nc" id="L1800">		return this;		</span>
+<span class="nc" id="L1796">		js.call(&quot;on&quot;, events.toJSObject(), selector);</span>
+<span class="nc" id="L1797">		return this;		</span>
 	}
 
 	// https://api.jquery.com/on/
 	public JQuery on(PlainObject events, Object data) {
-<span class="nc" id="L1805">		js.call(&quot;on&quot;, events.toJSObject(), data);</span>
-<span class="nc" id="L1806">		return this;		</span>
+<span class="nc" id="L1802">		js.call(&quot;on&quot;, events.toJSObject(), data);</span>
+<span class="nc" id="L1803">		return this;		</span>
 	}
 
 	// https://api.jquery.com/on/
 	public JQuery on(PlainObject events, String selector, Object data) {
-<span class="nc" id="L1811">		js.call(&quot;on&quot;, events.toJSObject(), selector, data);</span>
-<span class="nc" id="L1812">		return this;		</span>
+<span class="nc" id="L1808">		js.call(&quot;on&quot;, events.toJSObject(), selector, data);</span>
+<span class="nc" id="L1809">		return this;		</span>
 	}
 	
 	// https://api.jquery.com/one/
 	public JQuery one(String events, EventHandler handler) {
-<span class="nc" id="L1817">		js.call(&quot;one&quot;, events, createFunction(handler));</span>
-<span class="nc" id="L1818">		return this;</span>
+<span class="nc" id="L1814">		js.call(&quot;one&quot;, events, createFunction(handler));</span>
+<span class="nc" id="L1815">		return this;</span>
 	}
 	
 	// https://api.jquery.com/one/
 	public JQuery one(String events, PlainObject data, EventHandler handler) {
-<span class="nc" id="L1823">		js.call(&quot;one&quot;, events, data.toJSObject(), createFunction(handler));</span>
-<span class="nc" id="L1824">		return this;</span>
+<span class="nc" id="L1820">		js.call(&quot;one&quot;, events, data.toJSObject(), createFunction(handler));</span>
+<span class="nc" id="L1821">		return this;</span>
 	}
 	
 	// https://api.jquery.com/one/
 	public JQuery one(String events, String selector, EventHandler handler) {
-<span class="nc" id="L1829">		js.call(&quot;one&quot;, events, selector, createFunction(handler));</span>
-<span class="nc" id="L1830">		return this;</span>
+<span class="nc" id="L1826">		js.call(&quot;one&quot;, events, selector, createFunction(handler));</span>
+<span class="nc" id="L1827">		return this;</span>
 	}
 
 	// https://api.jquery.com/one/
 	public JQuery one(String events, Object data, EventHandler handler) {
-<span class="nc" id="L1835">		js.call(&quot;one&quot;, events, data, createFunction(handler));</span>
-<span class="nc" id="L1836">		return this;</span>
+<span class="nc" id="L1832">		js.call(&quot;one&quot;, events, data, createFunction(handler));</span>
+<span class="nc" id="L1833">		return this;</span>
 	}
 	
 	// https://api.jquery.com/one/
 	public JQuery one(String events, String selector, Object data, EventHandler handler) {
-<span class="nc" id="L1841">		js.call(&quot;one&quot;, events, selector, data, createFunction(handler));</span>
-<span class="nc" id="L1842">		return this;</span>
+<span class="nc" id="L1838">		js.call(&quot;one&quot;, events, selector, data, createFunction(handler));</span>
+<span class="nc" id="L1839">		return this;</span>
 	}
 
 	// https://api.jquery.com/one/
 	public JQuery one(PlainObject events) {
-<span class="nc" id="L1847">		js.call(&quot;one&quot;, events.toJSObject());</span>
-<span class="nc" id="L1848">		return this;</span>
+<span class="nc" id="L1844">		js.call(&quot;one&quot;, events.toJSObject());</span>
+<span class="nc" id="L1845">		return this;</span>
 	}
 
 	// https://api.jquery.com/one/
 	public JQuery one(PlainObject events, String selector) {
-<span class="nc" id="L1853">		js.call(&quot;one&quot;, events.toJSObject(), selector);</span>
-<span class="nc" id="L1854">		return this;</span>
+<span class="nc" id="L1850">		js.call(&quot;one&quot;, events.toJSObject(), selector);</span>
+<span class="nc" id="L1851">		return this;</span>
 	}
 
 	// https://api.jquery.com/one/
 	public JQuery one(PlainObject events, Object data) {
-<span class="nc" id="L1859">		js.call(&quot;one&quot;, events.toJSObject(), data);</span>
-<span class="nc" id="L1860">		return this;</span>
+<span class="nc" id="L1856">		js.call(&quot;one&quot;, events.toJSObject(), data);</span>
+<span class="nc" id="L1857">		return this;</span>
 	}
 
 	// https://api.jquery.com/one/
 	public JQuery one(PlainObject events, String selector, Object data) {
-<span class="nc" id="L1865">		js.call(&quot;one&quot;, events.toJSObject(), selector, data);</span>
-<span class="nc" id="L1866">		return this;</span>
+<span class="nc" id="L1862">		js.call(&quot;one&quot;, events.toJSObject(), selector, data);</span>
+<span class="nc" id="L1863">		return this;</span>
 	}
 
 	// https://api.jquery.com/outerHeight/
 	public int outerHeight() {
-<span class="nc" id="L1871">		return (int)js.call(&quot;outerHeight&quot;);</span>
+<span class="nc" id="L1868">		return (int)js.call(&quot;outerHeight&quot;);</span>
 	}
 
 	// https://api.jquery.com/outerHeight/
 	public JQuery outerHeight(String height) {
-<span class="nc" id="L1876">		js.call(&quot;outerHeight&quot;, height);</span>
-<span class="nc" id="L1877">		return this;</span>
+<span class="nc" id="L1873">		js.call(&quot;outerHeight&quot;, height);</span>
+<span class="nc" id="L1874">		return this;</span>
 	}
 
 	// https://api.jquery.com/outerHeight/
 	public JQuery outerHeight(int height) {
-<span class="nc" id="L1882">		js.call(&quot;outerHeight&quot;, height);</span>
-<span class="nc" id="L1883">		return this;</span>
+<span class="nc" id="L1879">		js.call(&quot;outerHeight&quot;, height);</span>
+<span class="nc" id="L1880">		return this;</span>
 	}
 
 	// https://api.jquery.com/outerHeight/
 	public JQuery outerHeight(IntIntStringFunction function) {
-<span class="nc" id="L1888">		js.call(&quot;outerHeight&quot;, createFunction(function));</span>
-<span class="nc" id="L1889">		return this;</span>
+<span class="nc" id="L1885">		js.call(&quot;outerHeight&quot;, createFunction(function));</span>
+<span class="nc" id="L1886">		return this;</span>
 	}
 
 	// https://api.jquery.com/outerWidth/
 	public int outerWidth() {
-<span class="nc" id="L1894">		return (int)js.call(&quot;outerWidth&quot;);</span>
+<span class="nc" id="L1891">		return (int)js.call(&quot;outerWidth&quot;);</span>
 	}
 
 	// https://api.jquery.com/outerWidth/
 	public JQuery outerWidth(String width) {
-<span class="nc" id="L1899">		js.call(&quot;outerWidth&quot;, width);</span>
-<span class="nc" id="L1900">		return this;</span>
+<span class="nc" id="L1896">		js.call(&quot;outerWidth&quot;, width);</span>
+<span class="nc" id="L1897">		return this;</span>
 	}
 
 	// https://api.jquery.com/outerWidth/
 	public JQuery outerWidth(int width) {
-<span class="nc" id="L1905">		js.call(&quot;outerWidth&quot;, width);</span>
-<span class="nc" id="L1906">		return this;</span>
+<span class="nc" id="L1902">		js.call(&quot;outerWidth&quot;, width);</span>
+<span class="nc" id="L1903">		return this;</span>
 	}
 
 	// https://api.jquery.com/outerWidth/
 	public JQuery outerWidth(IntIntStringFunction function) {
-<span class="nc" id="L1911">		js.call(&quot;outerWidth&quot;, createFunction(function));</span>
-<span class="nc" id="L1912">		return this;</span>
+<span class="nc" id="L1908">		js.call(&quot;outerWidth&quot;, createFunction(function));</span>
+<span class="nc" id="L1909">		return this;</span>
 	}
 
 	// https://api.jquery.com/parent/
 	public JQuery parent() {
-<span class="nc" id="L1917">		return new JQuery(js.call(&quot;parent&quot;));</span>
+<span class="nc" id="L1914">		return new JQuery(js.call(&quot;parent&quot;));</span>
 	}
 
 	// https://api.jquery.com/parent/
 	public JQuery parent(String selector) {
-<span class="nc" id="L1922">		return new JQuery(js.call(&quot;parent&quot;,selector));</span>
+<span class="nc" id="L1919">		return new JQuery(js.call(&quot;parent&quot;,selector));</span>
 	}
 
 	// https://api.jquery.com/parents/
 	public JQuery parents() {
-<span class="nc" id="L1927">		return new JQuery(js.call(&quot;parents&quot;));</span>
+<span class="nc" id="L1924">		return new JQuery(js.call(&quot;parents&quot;));</span>
 	}
 
 	// https://api.jquery.com/parents/
 	public JQuery parents(String selector) {
-<span class="nc" id="L1932">		return new JQuery(js.call(&quot;parents&quot;,selector));</span>
+<span class="nc" id="L1929">		return new JQuery(js.call(&quot;parents&quot;,selector));</span>
 	}
 
 	// https://api.jquery.com/parentsUntil/
 	public JQuery parentsUntil() {
-<span class="nc" id="L1937">		return new JQuery(js.call(&quot;parentsUntil&quot;));</span>
+<span class="nc" id="L1934">		return new JQuery(js.call(&quot;parentsUntil&quot;));</span>
 	}
 	// https://api.jquery.com/parentsUntil/
 	public JQuery parentsUntil(String selector) {
-<span class="nc" id="L1941">		return new JQuery(js.call(&quot;parentsUntil&quot;,selector));</span>
+<span class="nc" id="L1938">		return new JQuery(js.call(&quot;parentsUntil&quot;,selector));</span>
 	}
 	// https://api.jquery.com/parentsUntil/
 	public JQuery parentsUntil(String selector, String filter) {
-<span class="nc" id="L1945">		return new JQuery(js.call(&quot;parentsUntil&quot;, selector, filter));</span>
+<span class="nc" id="L1942">		return new JQuery(js.call(&quot;parentsUntil&quot;, selector, filter));</span>
 	}
 	// https://api.jquery.com/parentsUntil/
 	public JQuery parentsUntil(Element element) {
-<span class="nc" id="L1949">		return new JQuery(js.call(&quot;parentsUntil&quot;, element));</span>
+<span class="nc" id="L1946">		return new JQuery(js.call(&quot;parentsUntil&quot;, element));</span>
 	}
 	// https://api.jquery.com/parentsUntil/
 	public JQuery parentsUntil(Element element, String filter) {
-<span class="nc" id="L1953">		return new JQuery(js.call(&quot;parentsUntil&quot;, element, filter));</span>
+<span class="nc" id="L1950">		return new JQuery(js.call(&quot;parentsUntil&quot;, element, filter));</span>
 	}
 	// https://api.jquery.com/parentsUntil/
 	public JQuery parentsUntil(JQuery element) {
-<span class="nc" id="L1957">		return new JQuery(js.call(&quot;parentsUntil&quot;, element.js));</span>
+<span class="nc" id="L1954">		return new JQuery(js.call(&quot;parentsUntil&quot;, element.js));</span>
 	}
 	// https://api.jquery.com/parentsUntil/
 	public JQuery parentsUntil(JQuery element, String filter) {
-<span class="nc" id="L1961">		return new JQuery(js.call(&quot;parentsUntil&quot;, element.js, filter));</span>
+<span class="nc" id="L1958">		return new JQuery(js.call(&quot;parentsUntil&quot;, element.js, filter));</span>
 	}
 	
 	// https://api.jquery.com/position/
 	public Offset position() {
-<span class="nc" id="L1966">		return new Offset((JSObject)js.call(&quot;position&quot;));</span>
+<span class="nc" id="L1963">		return new Offset((JSObject)js.call(&quot;position&quot;));</span>
 	}
 	
 	// https://api.jquery.com/prepend/
 	public JQuery prepend(String content) {
-<span class="nc" id="L1971">		return new JQuery(js.call(&quot;prepend&quot;, content));</span>
+<span class="nc" id="L1968">		return new JQuery(js.call(&quot;prepend&quot;, content));</span>
 	}
 
 	// https://api.jquery.com/prepend/
 	public JQuery prepend(Element content) {
-<span class="nc" id="L1976">		return new JQuery(js.call(&quot;prepend&quot;, content));</span>
+<span class="nc" id="L1973">		return new JQuery(js.call(&quot;prepend&quot;, content));</span>
 	}
 	// https://api.jquery.com/prepend/
 	public JQuery prepend(Element ... content) {
-<span class="nc" id="L1980">		return new JQuery(js.call(&quot;prepend&quot;, createArray(content)));</span>
+<span class="nc" id="L1977">		return new JQuery(js.call(&quot;prepend&quot;, createArray(content)));</span>
 	}
 	// https://api.jquery.com/prepend/
 	public JQuery prepend(JQuery content) {
-<span class="nc" id="L1984">		return new JQuery(js.call(&quot;prepend&quot;, content.js));</span>
+<span class="nc" id="L1981">		return new JQuery(js.call(&quot;prepend&quot;, content.js));</span>
 	}
 	
 	// https://api.jquery.com/prepend/
 	public JQuery prepend(IntStringStringFunction function) {
-<span class="nc" id="L1989">		return new JQuery(js.call(&quot;prepend&quot;, function));</span>
+<span class="nc" id="L1986">		return new JQuery(js.call(&quot;prepend&quot;, function));</span>
 	}
 
 	// https://api.jquery.com/prependTo/
 	public JQuery prependTo(String target) {
-<span class="nc" id="L1994">		return new JQuery(js.call(&quot;prependTo&quot;, target));</span>
+<span class="nc" id="L1991">		return new JQuery(js.call(&quot;prependTo&quot;, target));</span>
 	}
 
 	// https://api.jquery.com/prependTo/
 	public JQuery prependTo(Element target) {
-<span class="nc" id="L1999">		return new JQuery(js.call(&quot;prependTo&quot;, target));</span>
+<span class="nc" id="L1996">		return new JQuery(js.call(&quot;prependTo&quot;, target));</span>
 	}
 
 	// https://api.jquery.com/prependTo/
 	public JQuery prependTo(Element ... target) {
-<span class="nc" id="L2004">		return new JQuery(js.call(&quot;prependTo&quot;, createArray(target)));</span>
+<span class="nc" id="L2001">		return new JQuery(js.call(&quot;prependTo&quot;, createArray(target)));</span>
 	}
 
 	// https://api.jquery.com/prependTo/
 	public JQuery prependTo(JQuery target) {
-<span class="nc" id="L2009">		return new JQuery(js.call(&quot;prependTo&quot;, target.js));</span>
+<span class="nc" id="L2006">		return new JQuery(js.call(&quot;prependTo&quot;, target.js));</span>
 	}
 
 	// https://api.jquery.com/prev/
 	public JQuery prev() {
-<span class="nc" id="L2014">		return new JQuery(js.call(&quot;prev&quot;));</span>
+<span class="nc" id="L2011">		return new JQuery(js.call(&quot;prev&quot;));</span>
 	}
 
 	// https://api.jquery.com/prev/
 	public JQuery prev(String selector) {
-<span class="nc" id="L2019">		return new JQuery(js.call(&quot;prev&quot;,selector));</span>
+<span class="nc" id="L2016">		return new JQuery(js.call(&quot;prev&quot;,selector));</span>
 	}
 
 	// https://api.jquery.com/prevAll/
 	public JQuery prevAll() {
-<span class="nc" id="L2024">		return new JQuery(js.call(&quot;prevAll&quot;));</span>
+<span class="nc" id="L2021">		return new JQuery(js.call(&quot;prevAll&quot;));</span>
 	}
 
 	// https://api.jquery.com/prevAll/
 	public JQuery prevAll(String selector) {
-<span class="nc" id="L2029">		return new JQuery(js.call(&quot;prevAll&quot;,selector));</span>
+<span class="nc" id="L2026">		return new JQuery(js.call(&quot;prevAll&quot;,selector));</span>
 	}
 
 	// https://api.jquery.com/prevUntil/
 	public JQuery prevUntil() {
-<span class="nc" id="L2034">		return new JQuery(js.call(&quot;prevUntil&quot;));</span>
+<span class="nc" id="L2031">		return new JQuery(js.call(&quot;prevUntil&quot;));</span>
 	}
 
 	// https://api.jquery.com/prevUntil/
 	public JQuery prevUntil(String selector) {
-<span class="nc" id="L2039">		return new JQuery(js.call(&quot;prevUntil&quot;,selector));</span>
+<span class="nc" id="L2036">		return new JQuery(js.call(&quot;prevUntil&quot;,selector));</span>
 	}
 
 	// https://api.jquery.com/prevUntil/
 	public JQuery prevUntil(String selector, String filter) {
-<span class="nc" id="L2044">		return new JQuery(js.call(&quot;prevUntil&quot;, selector, filter));</span>
+<span class="nc" id="L2041">		return new JQuery(js.call(&quot;prevUntil&quot;, selector, filter));</span>
 	}
 
 	// https://api.jquery.com/prevUntil/
 	public JQuery prevUntil(Element element) {
-<span class="nc" id="L2049">		return new JQuery(js.call(&quot;prevUntil&quot;, element));</span>
+<span class="nc" id="L2046">		return new JQuery(js.call(&quot;prevUntil&quot;, element));</span>
 	}
 
 	// https://api.jquery.com/prevUntil/
 	public JQuery prevUntil(Element element, String filter) {
-<span class="nc" id="L2054">		return new JQuery(js.call(&quot;prevUntil&quot;, element, filter));</span>
+<span class="nc" id="L2051">		return new JQuery(js.call(&quot;prevUntil&quot;, element, filter));</span>
 	}
 
 	// https://api.jquery.com/prevUntil/
 	public JQuery prevUntil(JQuery element) {
-<span class="nc" id="L2059">		return new JQuery(js.call(&quot;prevUntil&quot;, element.js));</span>
+<span class="nc" id="L2056">		return new JQuery(js.call(&quot;prevUntil&quot;, element.js));</span>
 	}
 
 	// https://api.jquery.com/prevUntil/
 	public JQuery prevUntil(JQuery element, String filter) {
-<span class="nc" id="L2064">		return new JQuery(js.call(&quot;prevUntil&quot;, element.js, filter));</span>
+<span class="nc" id="L2061">		return new JQuery(js.call(&quot;prevUntil&quot;, element.js, filter));</span>
 	}
 
 	// https://api.jquery.com/promise/
 	public Promise promise() {
-<span class="nc" id="L2069">		return new Promise((JSObject)js.call(&quot;promise&quot;));</span>
+<span class="nc" id="L2066">		return new Promise((JSObject)js.call(&quot;promise&quot;));</span>
 	}
 
 	// https://api.jquery.com/promise/
 	public Promise promise(String type) {
-<span class="nc" id="L2074">		return new Promise((JSObject)js.call(&quot;promise&quot;, type));</span>
+<span class="nc" id="L2071">		return new Promise((JSObject)js.call(&quot;promise&quot;, type));</span>
 	}
 
 	// https://api.jquery.com/promise/
 	public Promise promise(String type, Object target) {
-<span class="nc" id="L2079">		return new Promise((JSObject)js.call(&quot;promise&quot;, type, target));</span>
+<span class="nc" id="L2076">		return new Promise((JSObject)js.call(&quot;promise&quot;, type, target));</span>
 	}
 
 	// https://api.jquery.com/prop/
 	public Object prop(String propertyName) {
-<span class="nc" id="L2084">		return js.call(&quot;prop&quot;, propertyName);</span>
+<span class="nc" id="L2081">		return js.call(&quot;prop&quot;, propertyName);</span>
 	}
 
 	// https://api.jquery.com/prop/
 	public JQuery prop(String propertyName, Object value) {
-<span class="nc" id="L2089">		return new JQuery(js.call(&quot;prop&quot;, propertyName, value));</span>
+<span class="nc" id="L2086">		return new JQuery(js.call(&quot;prop&quot;, propertyName, value));</span>
 	}
 
 	// https://api.jquery.com/prop/
 	public Object prop(Object properties) {
-<span class="nc" id="L2094">		return js.call(&quot;prop&quot;, properties);</span>
+<span class="nc" id="L2091">		return js.call(&quot;prop&quot;, properties);</span>
 	}
 
 	// https://api.jquery.com/prop/
 	public Object prop(String propertyName, IntObjectObjectFunction function) {
-<span class="nc" id="L2099">		return js.call(&quot;prop&quot;, propertyName, createFunction(function));</span>
+<span class="nc" id="L2096">		return js.call(&quot;prop&quot;, propertyName, createFunction(function));</span>
 	}
 
 	// https://api.jquery.com/queue/
 	public Object[] queue() {
-<span class="nc" id="L2104">		return (Object[])js.call(&quot;queue&quot;);</span>
+<span class="nc" id="L2101">		return (Object[])js.call(&quot;queue&quot;);</span>
 	}
 
 	// https://api.jquery.com/queue/
 	public Object[] queue(String queueName) {
-<span class="nc" id="L2109">		return (Object[])js.call(&quot;queue&quot;, queueName);</span>
+<span class="nc" id="L2106">		return (Object[])js.call(&quot;queue&quot;, queueName);</span>
 	}
 
 	// https://api.jquery.com/queue/
 	public JQuery queue(Object[] newQueue) {
-<span class="nc" id="L2114">		js.call(&quot;queue&quot;, createArray(newQueue));</span>
-<span class="nc" id="L2115">		return this;</span>
+<span class="nc" id="L2111">		js.call(&quot;queue&quot;, createArray(newQueue));</span>
+<span class="nc" id="L2112">		return this;</span>
 	}
 
 	// https://api.jquery.com/queue/
 	public JQuery queue(String queueName, Object ... newQueue) {
-<span class="nc" id="L2120">		js.call(&quot;queue&quot;, queueName, createArray(newQueue));</span>
-<span class="nc" id="L2121">		return this;</span>
+<span class="nc" id="L2117">		js.call(&quot;queue&quot;, queueName, createArray(newQueue));</span>
+<span class="nc" id="L2118">		return this;</span>
 	}
 
 	// https://api.jquery.com/queue/
 	public JQuery queue(VoidFunctionFunction callback) {
-<span class="nc" id="L2126">		js.call(&quot;queue&quot;, createFunction(callback));</span>
-<span class="nc" id="L2127">		return this;</span>
+<span class="nc" id="L2123">		js.call(&quot;queue&quot;, createFunction(callback));</span>
+<span class="nc" id="L2124">		return this;</span>
 	}
 
 	// https://api.jquery.com/queue/
 	public JQuery queue(String queueName, VoidFunctionFunction callback) {
-<span class="nc" id="L2132">		js.call(&quot;queue&quot;, queueName, createFunction(callback));</span>
-<span class="nc" id="L2133">		return this;</span>
+<span class="nc" id="L2129">		js.call(&quot;queue&quot;, queueName, createFunction(callback));</span>
+<span class="nc" id="L2130">		return this;</span>
 	}
 
 	// https://api.jquery.com/ready/
 	public JQuery ready(VoidFunction function) {
-<span class="nc" id="L2138">		readyFunctions.add(function);</span>
-<span class="nc" id="L2139">		return this;</span>
+<span class="nc" id="L2135">		readyFunctions.add(function);</span>
+<span class="nc" id="L2136">		return this;</span>
 	}
 
 	// https://api.jquery.com/remove/
 	public JQuery remove() {
-<span class="nc" id="L2144">		return new JQuery(js.call(&quot;remove&quot;));</span>
+<span class="nc" id="L2141">		return new JQuery(js.call(&quot;remove&quot;));</span>
 	}
 
 	// https://api.jquery.com/remove/
 	public JQuery remove(String selector) {
-<span class="nc" id="L2149">		return new JQuery(js.call(&quot;remove&quot;,selector));</span>
+<span class="nc" id="L2146">		return new JQuery(js.call(&quot;remove&quot;,selector));</span>
 	}
 
 	// https://api.jquery.com/removeAttr/
 	public JQuery removeAttr(String attributeName) {
-<span class="nc" id="L2154">		js.call(&quot;removeAttr&quot;, attributeName);</span>
-<span class="nc" id="L2155">		return this;</span>
+<span class="nc" id="L2151">		js.call(&quot;removeAttr&quot;, attributeName);</span>
+<span class="nc" id="L2152">		return this;</span>
 	}
 
 	// https://api.jquery.com/removeClass/#removeClass-className
 	public JQuery removeClass() {
-<span class="fc" id="L2160">		js.call(&quot;removeClass&quot;);</span>
-<span class="fc" id="L2161">		return this;</span>
+<span class="fc" id="L2157">		js.call(&quot;removeClass&quot;);</span>
+<span class="fc" id="L2158">		return this;</span>
 	}
 
 	// https://api.jquery.com/removeClass/#removeClass-className
 	public JQuery removeClass(String classname) {
-<span class="fc" id="L2166">		js.call(&quot;removeClass&quot;, classname);</span>
-<span class="fc" id="L2167">		return this;</span>
+<span class="fc" id="L2163">		js.call(&quot;removeClass&quot;, classname);</span>
+<span class="fc" id="L2164">		return this;</span>
 	}
 	
 	// https://api.jquery.com/removeClass/#removeClass-function
 	public JQuery removeClass(IntStringStringFunction function) {
-<span class="fc" id="L2172">		js.call(&quot;removeClass&quot;, createFunction(function));</span>
-<span class="fc" id="L2173">		return this;</span>
+<span class="fc" id="L2169">		js.call(&quot;removeClass&quot;, createFunction(function));</span>
+<span class="fc" id="L2170">		return this;</span>
 	}
 	
 	// https://api.jquery.com/removeData/
 	public JQuery removeData() {
-<span class="nc" id="L2178">		js.call(&quot;removeData&quot;);</span>
-<span class="nc" id="L2179">		return this;</span>
+<span class="nc" id="L2175">		js.call(&quot;removeData&quot;);</span>
+<span class="nc" id="L2176">		return this;</span>
 	}
 
 	// https://api.jquery.com/removeData/
 	public JQuery removeData(String name) {
-<span class="nc" id="L2184">		js.call(&quot;removeData&quot;, name);</span>
-<span class="nc" id="L2185">		return this;</span>
+<span class="nc" id="L2181">		js.call(&quot;removeData&quot;, name);</span>
+<span class="nc" id="L2182">		return this;</span>
 	}
 
 	// https://api.jquery.com/removeData/
 	public JQuery removeData(String ... names) {
-<span class="nc" id="L2190">		js.call(&quot;removeData&quot;, createArray(names));</span>
-<span class="nc" id="L2191">		return this;</span>
+<span class="nc" id="L2187">		js.call(&quot;removeData&quot;, createArray(names));</span>
+<span class="nc" id="L2188">		return this;</span>
 	}
 
 	// https://api.jquery.com/removeProp/
 	public JQuery removeProp(String propertyName) {
-<span class="nc" id="L2196">		js.call(&quot;removeProp&quot;, propertyName);</span>
-<span class="nc" id="L2197">		return this;</span>
+<span class="nc" id="L2193">		js.call(&quot;removeProp&quot;, propertyName);</span>
+<span class="nc" id="L2194">		return this;</span>
 	}
 	
 	// https://api.jquery.com/replaceAll/
 	public JQuery replaceAll(String target) {
-<span class="nc" id="L2202">		return new JQuery(js.call(&quot;replaceAll&quot;, target));</span>
+<span class="nc" id="L2199">		return new JQuery(js.call(&quot;replaceAll&quot;, target));</span>
 	}
 
 	// https://api.jquery.com/replaceAll/
 	public JQuery replaceAll(JQuery target) {
-<span class="nc" id="L2207">		return new JQuery(js.call(&quot;replaceAll&quot;, target.js));</span>
+<span class="nc" id="L2204">		return new JQuery(js.call(&quot;replaceAll&quot;, target.js));</span>
 	}
 
 	// https://api.jquery.com/replaceAll/
 	public JQuery replaceAll(Element target) {
-<span class="nc" id="L2212">		return new JQuery(js.call(&quot;replaceAll&quot;, target));</span>
+<span class="nc" id="L2209">		return new JQuery(js.call(&quot;replaceAll&quot;, target));</span>
 	}
 
 	// https://api.jquery.com/replaceAll/
 	public JQuery replaceAll(Element ... target) {
-<span class="nc" id="L2217">		return new JQuery(js.call(&quot;replaceAll&quot;, createArray(target)));</span>
+<span class="nc" id="L2214">		return new JQuery(js.call(&quot;replaceAll&quot;, createArray(target)));</span>
 	}
 
 	// https://api.jquery.com/replaceWith/
 	public JQuery replaceWith(String newContent) {
-<span class="nc" id="L2222">		return new JQuery(js.call(&quot;replaceWith&quot;,newContent));</span>
+<span class="nc" id="L2219">		return new JQuery(js.call(&quot;replaceWith&quot;,newContent));</span>
 	}
 
 	// https://api.jquery.com/replaceWith/
 	public JQuery replaceWith(Element newContent) {
-<span class="nc" id="L2227">		return new JQuery(js.call(&quot;replaceWith&quot;,newContent));</span>
+<span class="nc" id="L2224">		return new JQuery(js.call(&quot;replaceWith&quot;,newContent));</span>
 	}
 
 	// https://api.jquery.com/replaceWith/
 	public JQuery replaceWith(Element ... newContent) {
-<span class="nc" id="L2232">		return new JQuery(js.call(&quot;replaceWith&quot;,createArray(newContent)));</span>
+<span class="nc" id="L2229">		return new JQuery(js.call(&quot;replaceWith&quot;,createArray(newContent)));</span>
 	}
 
 	// https://api.jquery.com/replaceWith/
 	public JQuery replaceWith(JQuery newContent) {
-<span class="nc" id="L2237">		return new JQuery(js.call(&quot;replaceWith&quot;,newContent.js));</span>
+<span class="nc" id="L2234">		return new JQuery(js.call(&quot;replaceWith&quot;,newContent.js));</span>
 	}
 
 	// https://api.jquery.com/replaceWith/
 	public JQuery replaceWith(JQueryFunction newContent) {
-<span class="nc" id="L2242">		return new JQuery(js.call(&quot;replaceWith&quot;));</span>
+<span class="nc" id="L2239">		return new JQuery(js.call(&quot;replaceWith&quot;));</span>
 	}
 
 	// https://api.jquery.com/resize/
 	public JQuery resize() {
-<span class="nc" id="L2247">		js.call(&quot;resize&quot;);</span>
-<span class="nc" id="L2248">		return this;</span>
+<span class="nc" id="L2244">		js.call(&quot;resize&quot;);</span>
+<span class="nc" id="L2245">		return this;</span>
 	}
 
 	// https://api.jquery.com/resize/
 	public JQuery resize(EventHandler handler) {
-<span class="nc" id="L2253">		return bind(&quot;resize&quot;,handler);</span>
+<span class="nc" id="L2250">		return bind(&quot;resize&quot;,handler);</span>
 	}
 
 	// https://api.jquery.com/resize/
 	public JQuery resize(Object eventData, EventHandler handler) {
-<span class="nc" id="L2258">		return bind(&quot;resize&quot;,eventData,handler);</span>
+<span class="nc" id="L2255">		return bind(&quot;resize&quot;,eventData,handler);</span>
 	}
 
 	// https://api.jquery.com/scroll/
 	public JQuery scroll() {
-<span class="nc" id="L2263">		js.call(&quot;scroll&quot;);</span>
-<span class="nc" id="L2264">		return this;</span>
+<span class="nc" id="L2260">		js.call(&quot;scroll&quot;);</span>
+<span class="nc" id="L2261">		return this;</span>
 	}
 
 	// https://api.jquery.com/scroll/
 	public JQuery scroll(EventHandler handler) {
-<span class="nc" id="L2269">		return bind(&quot;scroll&quot;,handler);</span>
+<span class="nc" id="L2266">		return bind(&quot;scroll&quot;,handler);</span>
 	}
 
 	// https://api.jquery.com/scroll/
 	public JQuery scroll(Object eventData, EventHandler handler) {
-<span class="nc" id="L2274">		return bind(&quot;scroll&quot;,eventData,handler);</span>
+<span class="nc" id="L2271">		return bind(&quot;scroll&quot;,eventData,handler);</span>
 	}
 
 	// https://api.jquery.com/scrollLeft/
 	public int scrollLeft() {
-<span class="nc" id="L2279">		return (int)js.call(&quot;scrollLeft&quot;);</span>
+<span class="nc" id="L2276">		return (int)js.call(&quot;scrollLeft&quot;);</span>
 	}
 
 	// https://api.jquery.com/scrollLeft/
 	public int scrollLeft(int value) {
-<span class="nc" id="L2284">		return (int)js.call(&quot;scrollLeft&quot;, value);</span>
+<span class="nc" id="L2281">		return (int)js.call(&quot;scrollLeft&quot;, value);</span>
 	}
 	
 	// https://api.jquery.com/scrollTop/
 	public int scrollTop() {
-<span class="nc" id="L2289">		return (int)js.call(&quot;scrollTop&quot;);</span>
+<span class="nc" id="L2286">		return (int)js.call(&quot;scrollTop&quot;);</span>
 	}
 
 	// https://api.jquery.com/scrollTop/
 	public int scrollTop(int value) {
-<span class="nc" id="L2294">		return (int)js.call(&quot;scrollTop&quot;, value);</span>
+<span class="nc" id="L2291">		return (int)js.call(&quot;scrollTop&quot;, value);</span>
 	}
 
 	// https://api.jquery.com/select/
 	public JQuery select() {
-<span class="nc" id="L2299">		js.call(&quot;select&quot;);</span>
-<span class="nc" id="L2300">		return this;</span>
+<span class="nc" id="L2296">		js.call(&quot;select&quot;);</span>
+<span class="nc" id="L2297">		return this;</span>
 	}
 
 	// https://api.jquery.com/select/
 	public JQuery select(EventHandler handler) {
-<span class="nc" id="L2305">		return bind(&quot;select&quot;,handler);</span>
+<span class="nc" id="L2302">		return bind(&quot;select&quot;,handler);</span>
 	}
 
 	// https://api.jquery.com/select/
 	public JQuery select(Object eventData, EventHandler handler) {
-<span class="nc" id="L2310">		return bind(&quot;select&quot;,eventData,handler);</span>
+<span class="nc" id="L2307">		return bind(&quot;select&quot;,eventData,handler);</span>
 	}
 
 	// https://api.jquery.com/show/
 	public JQuery show() {
-<span class="nc" id="L2315">		js.call(&quot;show&quot;);</span>
-<span class="nc" id="L2316">		return this;</span>
+<span class="nc" id="L2312">		js.call(&quot;show&quot;);</span>
+<span class="nc" id="L2313">		return this;</span>
 	}
 
 	// https://api.jquery.com/show/
 	public JQuery show(String duration) {
-<span class="nc" id="L2321">		js.call(&quot;show&quot;, duration);</span>
-<span class="nc" id="L2322">		return this;</span>
+<span class="nc" id="L2318">		js.call(&quot;show&quot;, duration);</span>
+<span class="nc" id="L2319">		return this;</span>
 	}
 
 	// https://api.jquery.com/show/
 	public JQuery show(String duration, VoidFunction complete) {
-<span class="nc" id="L2327">		js.call(&quot;show&quot;, duration, createFunction(complete));</span>
-<span class="nc" id="L2328">		return this;</span>
+<span class="nc" id="L2324">		js.call(&quot;show&quot;, duration, createFunction(complete));</span>
+<span class="nc" id="L2325">		return this;</span>
 	}
 	
 	// https://api.jquery.com/show/
 	public JQuery show(AnimationOptions options) {
-<span class="nc" id="L2333">		js.call(&quot;show&quot;,options.toJSObject());</span>
-<span class="nc" id="L2334">		return this;</span>
+<span class="nc" id="L2330">		js.call(&quot;show&quot;,options.toJSObject());</span>
+<span class="nc" id="L2331">		return this;</span>
 	}
 
 	// https://api.jquery.com/show/
 	public JQuery show(String duration, String easing) {
-<span class="nc" id="L2339">		js.call(&quot;show&quot;, duration, easing);</span>
-<span class="nc" id="L2340">		return this;</span>
+<span class="nc" id="L2336">		js.call(&quot;show&quot;, duration, easing);</span>
+<span class="nc" id="L2337">		return this;</span>
 	}
 
 	// https://api.jquery.com/show/
 	public JQuery show(String duration, String easing, VoidFunction complete) {
-<span class="nc" id="L2345">		js.call(&quot;show&quot;, duration, easing, createFunction(complete));</span>
-<span class="nc" id="L2346">		return this;</span>
+<span class="nc" id="L2342">		js.call(&quot;show&quot;, duration, easing, createFunction(complete));</span>
+<span class="nc" id="L2343">		return this;</span>
 	}
 	
 	// https://api.jquery.com/siblings/
 	public JQuery siblings() {
-<span class="nc" id="L2351">		return new JQuery(js.call(&quot;siblings&quot;));</span>
+<span class="nc" id="L2348">		return new JQuery(js.call(&quot;siblings&quot;));</span>
 	}
 	
 	// https://api.jquery.com/siblings/
 	public JQuery siblings(String selector) {
-<span class="nc" id="L2356">		return new JQuery(js.call(&quot;siblings&quot;, selector));</span>
+<span class="nc" id="L2353">		return new JQuery(js.call(&quot;siblings&quot;, selector));</span>
 	}
 	
 	// https://api.jquery.com/size/
 	public int size() {
-<span class="nc" id="L2361">		return (int)js.call(&quot;size&quot;);</span>
+<span class="nc" id="L2358">		return (int)js.call(&quot;size&quot;);</span>
 
 	}
 	
 	// https://api.jquery.com/slice/
 	public JQuery slice(int start) {
-<span class="nc" id="L2367">		return new JQuery(js.call(&quot;slice&quot;, start));</span>
+<span class="nc" id="L2364">		return new JQuery(js.call(&quot;slice&quot;, start));</span>
 	}
 
 	// https://api.jquery.com/slice/
 	public JQuery slice(int start, int end) {
-<span class="nc" id="L2372">		return new JQuery(js.call(&quot;slice&quot;, start, end));</span>
+<span class="nc" id="L2369">		return new JQuery(js.call(&quot;slice&quot;, start, end));</span>
 	}
 
 	// https://api.jquery.com/slideToggle/
 	public JQuery slideToggle() {
-<span class="nc" id="L2377">		js.call(&quot;slideToggle&quot;);</span>
-<span class="nc" id="L2378">		return this;</span>
+<span class="nc" id="L2374">		js.call(&quot;slideToggle&quot;);</span>
+<span class="nc" id="L2375">		return this;</span>
 	}
 
 	// https://api.jquery.com/slideToggle/
 	public JQuery slideToggle(String duration) {
-<span class="nc" id="L2383">		js.call(&quot;slideToggle&quot;, duration);</span>
-<span class="nc" id="L2384">		return this;</span>
+<span class="nc" id="L2380">		js.call(&quot;slideToggle&quot;, duration);</span>
+<span class="nc" id="L2381">		return this;</span>
 	}
 
 	// https://api.jquery.com/slideToggle/
 	public JQuery slideToggle(String duration, VoidFunction complete) {
-<span class="nc" id="L2389">		js.call(&quot;slideToggle&quot;, duration, createFunction(complete));</span>
-<span class="nc" id="L2390">		return this;</span>
+<span class="nc" id="L2386">		js.call(&quot;slideToggle&quot;, duration, createFunction(complete));</span>
+<span class="nc" id="L2387">		return this;</span>
 	}
 	
 	// https://api.jquery.com/slideToggle/
 	public JQuery slideToggle(AnimationOptions options) {
-<span class="nc" id="L2395">		js.call(&quot;slideToggle&quot;, options.toJSObject());</span>
-<span class="nc" id="L2396">		return this;</span>
+<span class="nc" id="L2392">		js.call(&quot;slideToggle&quot;, options.toJSObject());</span>
+<span class="nc" id="L2393">		return this;</span>
 	}
 
 	// https://api.jquery.com/slideToggle/
 	public JQuery slideToggle(String duration, String easing) {
-<span class="nc" id="L2401">		js.call(&quot;slideToggle&quot;, duration, easing);</span>
-<span class="nc" id="L2402">		return this;</span>
+<span class="nc" id="L2398">		js.call(&quot;slideToggle&quot;, duration, easing);</span>
+<span class="nc" id="L2399">		return this;</span>
 	}
 
 	// https://api.jquery.com/slideToggle/
 	public JQuery slideToggle(String duration, String easing, VoidFunction complete) {
-<span class="nc" id="L2407">		js.call(&quot;slideToggle&quot;, duration, easing, createFunction(complete));</span>
-<span class="nc" id="L2408">		return this;</span>
+<span class="nc" id="L2404">		js.call(&quot;slideToggle&quot;, duration, easing, createFunction(complete));</span>
+<span class="nc" id="L2405">		return this;</span>
 	}
 
 	// https://api.jquery.com/slideDown/
 	public JQuery slideDown() {
-<span class="nc" id="L2413">		js.call(&quot;slideDown&quot;);</span>
-<span class="nc" id="L2414">		return this;</span>
+<span class="nc" id="L2410">		js.call(&quot;slideDown&quot;);</span>
+<span class="nc" id="L2411">		return this;</span>
 	}
 
 	// https://api.jquery.com/slideDown/
 	public JQuery slideDown(String duration) {
-<span class="nc" id="L2419">		js.call(&quot;slideDown&quot;, duration);</span>
-<span class="nc" id="L2420">		return this;</span>
+<span class="nc" id="L2416">		js.call(&quot;slideDown&quot;, duration);</span>
+<span class="nc" id="L2417">		return this;</span>
 	}
 
 	// https://api.jquery.com/slideDown/
 	public JQuery slideDown(String duration, VoidFunction complete) {
-<span class="nc" id="L2425">		js.call(&quot;slideDown&quot;, duration, createFunction(complete));</span>
-<span class="nc" id="L2426">		return this;</span>
+<span class="nc" id="L2422">		js.call(&quot;slideDown&quot;, duration, createFunction(complete));</span>
+<span class="nc" id="L2423">		return this;</span>
 	}
 	
 	// https://api.jquery.com/slideDown/
 	public JQuery slideDown(AnimationOptions options) {
-<span class="nc" id="L2431">		js.call(&quot;slideDown&quot;, options.toJSObject());</span>
-<span class="nc" id="L2432">		return this;</span>
+<span class="nc" id="L2428">		js.call(&quot;slideDown&quot;, options.toJSObject());</span>
+<span class="nc" id="L2429">		return this;</span>
 	}
 
 	// https://api.jquery.com/slideDown/
 	public JQuery slideDown(String duration, String easing) {
-<span class="nc" id="L2437">		js.call(&quot;slideDown&quot;, duration, easing);</span>
-<span class="nc" id="L2438">		return this;</span>
+<span class="nc" id="L2434">		js.call(&quot;slideDown&quot;, duration, easing);</span>
+<span class="nc" id="L2435">		return this;</span>
 	}
 
 	// https://api.jquery.com/slideDown/
 	public JQuery slideDown(String duration, String easing, VoidFunction complete) {
-<span class="nc" id="L2443">		js.call(&quot;slideDown&quot;, duration, easing, createFunction(complete));</span>
-<span class="nc" id="L2444">		return this;</span>
+<span class="nc" id="L2440">		js.call(&quot;slideDown&quot;, duration, easing, createFunction(complete));</span>
+<span class="nc" id="L2441">		return this;</span>
 	}
 	
 	// https://api.jquery.com/slideUp/
 	public JQuery slideUp() {
-<span class="nc" id="L2449">		js.call(&quot;slideUp&quot;);</span>
-<span class="nc" id="L2450">		return this;</span>
+<span class="nc" id="L2446">		js.call(&quot;slideUp&quot;);</span>
+<span class="nc" id="L2447">		return this;</span>
 	}
 
 	// https://api.jquery.com/slideUp/
 	public JQuery slideUp(String duration) {
-<span class="nc" id="L2455">		js.call(&quot;slideUp&quot;, duration);</span>
-<span class="nc" id="L2456">		return this;</span>
+<span class="nc" id="L2452">		js.call(&quot;slideUp&quot;, duration);</span>
+<span class="nc" id="L2453">		return this;</span>
 	}
 
 	// https://api.jquery.com/slideUp/
 	public JQuery slideUp(String duration, VoidFunction complete) {
-<span class="nc" id="L2461">		js.call(&quot;slideUp&quot;, duration, createFunction(complete));</span>
-<span class="nc" id="L2462">		return this;</span>
+<span class="nc" id="L2458">		js.call(&quot;slideUp&quot;, duration, createFunction(complete));</span>
+<span class="nc" id="L2459">		return this;</span>
 	}
 	
 	// https://api.jquery.com/slideUp/
 	public JQuery slideUp(AnimationOptions options) {
-<span class="nc" id="L2467">		js.call(&quot;slideUp&quot;, options.toJSObject());</span>
-<span class="nc" id="L2468">		return this;</span>
+<span class="nc" id="L2464">		js.call(&quot;slideUp&quot;, options.toJSObject());</span>
+<span class="nc" id="L2465">		return this;</span>
 	}
 
 	// https://api.jquery.com/slideUp/
 	public JQuery slideUp(String duration, String easing) {
-<span class="nc" id="L2473">		js.call(&quot;slideUp&quot;, duration, easing);</span>
-<span class="nc" id="L2474">		return this;</span>
+<span class="nc" id="L2470">		js.call(&quot;slideUp&quot;, duration, easing);</span>
+<span class="nc" id="L2471">		return this;</span>
 	}
 
 	// https://api.jquery.com/slideUp/
 	public JQuery slideUp(String duration, String easing, VoidFunction complete) {
-<span class="nc" id="L2479">		js.call(&quot;slideUp&quot;, duration, easing);</span>
-<span class="nc" id="L2480">		return this;</span>
+<span class="nc" id="L2476">		js.call(&quot;slideUp&quot;, duration, easing);</span>
+<span class="nc" id="L2477">		return this;</span>
 	}
 
 	// https://api.jquery.com/stop/
 	public JQuery stop() {
-<span class="nc" id="L2485">		js.call(&quot;stop&quot;);</span>
-<span class="nc" id="L2486">		return this;</span>
+<span class="nc" id="L2482">		js.call(&quot;stop&quot;);</span>
+<span class="nc" id="L2483">		return this;</span>
 	}
 
 	// https://api.jquery.com/stop/
 	public JQuery stop(boolean clearQueue) {
-<span class="nc" id="L2491">		js.call(&quot;stop&quot;, clearQueue);</span>
-<span class="nc" id="L2492">		return this;</span>
+<span class="nc" id="L2488">		js.call(&quot;stop&quot;, clearQueue);</span>
+<span class="nc" id="L2489">		return this;</span>
 	}
 
 	// https://api.jquery.com/stop/
 	public JQuery stop(boolean clearQueue, boolean jumpToEnd) {
-<span class="nc" id="L2497">		js.call(&quot;stop&quot;, clearQueue, jumpToEnd);</span>
-<span class="nc" id="L2498">		return this;</span>
+<span class="nc" id="L2494">		js.call(&quot;stop&quot;, clearQueue, jumpToEnd);</span>
+<span class="nc" id="L2495">		return this;</span>
 	}
 
 	// https://api.jquery.com/stop/
 	public JQuery stop(String queue) {
-<span class="nc" id="L2503">		js.call(&quot;stop&quot;, queue);</span>
-<span class="nc" id="L2504">		return this;</span>
+<span class="nc" id="L2500">		js.call(&quot;stop&quot;, queue);</span>
+<span class="nc" id="L2501">		return this;</span>
 	}
 
 	// https://api.jquery.com/stop/
 	public JQuery stop(String queue, boolean clearQueue) {
-<span class="nc" id="L2509">		js.call(&quot;stop&quot;, queue, clearQueue);</span>
-<span class="nc" id="L2510">		return this;</span>
+<span class="nc" id="L2506">		js.call(&quot;stop&quot;, queue, clearQueue);</span>
+<span class="nc" id="L2507">		return this;</span>
 	}
 
 	// https://api.jquery.com/stop/
 	public JQuery stop(String queue, boolean clearQueue, boolean jumpToEnd) {
-<span class="nc" id="L2515">		js.call(&quot;stop&quot;, queue, clearQueue, jumpToEnd);</span>
-<span class="nc" id="L2516">		return this;</span>
+<span class="nc" id="L2512">		js.call(&quot;stop&quot;, queue, clearQueue, jumpToEnd);</span>
+<span class="nc" id="L2513">		return this;</span>
 	}
 
 	// https://api.jquery.com/submit/
 	public JQuery submit(EventHandler handler) {
-<span class="nc" id="L2521">		return bind(&quot;submit&quot;,handler);</span>
+<span class="nc" id="L2518">		return bind(&quot;submit&quot;,handler);</span>
 	}
 
 	// https://api.jquery.com/submit/
 	public JQuery submit(Object eventData, EventHandler handler) {
-<span class="nc" id="L2526">		return bind(&quot;submit&quot;,eventData,handler);</span>
+<span class="nc" id="L2523">		return bind(&quot;submit&quot;,eventData,handler);</span>
 	}
 
 	// https://api.jquery.com/submit/
 	public JQuery submit() {
-<span class="nc" id="L2531">		js.call(&quot;submit&quot;);</span>
-<span class="nc" id="L2532">		return this;</span>
+<span class="nc" id="L2528">		js.call(&quot;submit&quot;);</span>
+<span class="nc" id="L2529">		return this;</span>
 	}
 
 	// https://api.jquery.com/text/
 	public String text() {
-<span class="nc" id="L2537">		return (String)js.call(&quot;text&quot;);</span>
+<span class="nc" id="L2534">		return (String)js.call(&quot;text&quot;);</span>
 	}
 
 	// https://api.jquery.com/text/
 	public JQuery text(Object str) {
-<span class="nc" id="L2542">		return new JQuery(js.call(&quot;text&quot;,str.toString()));</span>
+<span class="nc" id="L2539">		return new JQuery(js.call(&quot;text&quot;,str.toString()));</span>
 	}
 
 	// https://api.jquery.com/text/
 	public JQuery text(IntStringStringFunction function) {
-<span class="nc" id="L2547">		return new JQuery(js.call(&quot;text&quot;,createFunction(function)));</span>
+<span class="nc" id="L2544">		return new JQuery(js.call(&quot;text&quot;,createFunction(function)));</span>
 	}
 
 	// https://api.jquery.com/toArray/
 	public Element[] toArray() {
-<span class="fc" id="L2552">		JSObject result = (JSObject)js.call(&quot;toArray&quot;);</span>
-<span class="fc" id="L2553">		Element[] els = new Element[(int)result.getMember(&quot;length&quot;)];</span>
-<span class="fc bfc" id="L2554" title="All 2 branches covered.">		for (int i=0 ; i&lt;els.length ; i++) {</span>
-<span class="fc" id="L2555">			els[i] = (Element)result.getSlot(i);</span>
+<span class="fc" id="L2549">		JSObject result = (JSObject)js.call(&quot;toArray&quot;);</span>
+<span class="fc" id="L2550">		Element[] els = new Element[(int)result.getMember(&quot;length&quot;)];</span>
+<span class="fc bfc" id="L2551" title="All 2 branches covered.">		for (int i=0 ; i&lt;els.length ; i++) {</span>
+<span class="fc" id="L2552">			els[i] = (Element)result.getSlot(i);</span>
 		}
-<span class="fc" id="L2557">		return els;</span>
+<span class="fc" id="L2554">		return els;</span>
 	}
 	
 	// https://api.jquery.com/toggle/
 	public JQuery toggle() {
-<span class="nc" id="L2562">		js.call(&quot;toggle&quot;);</span>
-<span class="nc" id="L2563">		return this;</span>
+<span class="nc" id="L2559">		js.call(&quot;toggle&quot;);</span>
+<span class="nc" id="L2560">		return this;</span>
 	}
 
 	// https://api.jquery.com/toggle/
 	public JQuery toggle(int duration) {
-<span class="nc" id="L2568">		js.call(&quot;toggle&quot;, duration);</span>
-<span class="nc" id="L2569">		return this;</span>
+<span class="nc" id="L2565">		js.call(&quot;toggle&quot;, duration);</span>
+<span class="nc" id="L2566">		return this;</span>
 	}
 
 	// https://api.jquery.com/toggle/
 	public JQuery toggle(int duration, VoidFunction complete) {
-<span class="nc" id="L2574">		js.call(&quot;toggle&quot;, duration, createFunction(complete));</span>
-<span class="nc" id="L2575">		return this;</span>
+<span class="nc" id="L2571">		js.call(&quot;toggle&quot;, duration, createFunction(complete));</span>
+<span class="nc" id="L2572">		return this;</span>
 	}
 	
 	// https://api.jquery.com/toggle/
 	public JQuery toggle(AnimationOptions options) {
-<span class="nc" id="L2580">		js.call(&quot;toggle&quot;, options.toJSObject());</span>
-<span class="nc" id="L2581">		return this;</span>
+<span class="nc" id="L2577">		js.call(&quot;toggle&quot;, options.toJSObject());</span>
+<span class="nc" id="L2578">		return this;</span>
 	}
 
 	// https://api.jquery.com/toggle/
 	public JQuery toggle(String duration, String easing) {
-<span class="nc" id="L2586">		js.call(&quot;toggle&quot;, duration, easing);</span>
-<span class="nc" id="L2587">		return this;</span>
+<span class="nc" id="L2583">		js.call(&quot;toggle&quot;, duration, easing);</span>
+<span class="nc" id="L2584">		return this;</span>
 	}
 	// https://api.jquery.com/toggle/
 	public JQuery toggle(String duration, String easing, VoidFunction complete) {
-<span class="nc" id="L2591">		js.call(&quot;toggle&quot;, duration, easing, createFunction(complete));</span>
-<span class="nc" id="L2592">		return this;</span>
+<span class="nc" id="L2588">		js.call(&quot;toggle&quot;, duration, easing, createFunction(complete));</span>
+<span class="nc" id="L2589">		return this;</span>
 	}
 
 	// https://api.jquery.com/toggle/
 	public JQuery toggle(boolean display) {
-<span class="nc" id="L2597">		js.call(&quot;toggle&quot;, display);</span>
-<span class="nc" id="L2598">		return this;</span>
+<span class="nc" id="L2594">		js.call(&quot;toggle&quot;, display);</span>
+<span class="nc" id="L2595">		return this;</span>
 	}
 
 	// https://api.jquery.com/toggleClass/
 	public JQuery toggleClass(String className) {
-<span class="nc" id="L2603">		js.call(&quot;toggle&quot;, className);</span>
-<span class="nc" id="L2604">		return this;</span>
+<span class="nc" id="L2600">		js.call(&quot;toggle&quot;, className);</span>
+<span class="nc" id="L2601">		return this;</span>
 	}
 
 	// https://api.jquery.com/toggleClass/
 	public JQuery toggleClass(String className, boolean state) {
-<span class="nc" id="L2609">		js.call(&quot;toggle&quot;, className, state);</span>
-<span class="nc" id="L2610">		return this;</span>
+<span class="nc" id="L2606">		js.call(&quot;toggle&quot;, className, state);</span>
+<span class="nc" id="L2607">		return this;</span>
 	}
 
 	// https://api.jquery.com/toggleClass/
 	public JQuery toggleClass() {
-<span class="nc" id="L2615">		js.call(&quot;toggle&quot;);</span>
-<span class="nc" id="L2616">		return this;</span>
+<span class="nc" id="L2612">		js.call(&quot;toggle&quot;);</span>
+<span class="nc" id="L2613">		return this;</span>
 	}
 
 	// https://api.jquery.com/toggleClass/
 	public JQuery toggleClass(boolean state) {
-<span class="nc" id="L2621">		js.call(&quot;toggle&quot;, state);</span>
-<span class="nc" id="L2622">		return this;</span>
+<span class="nc" id="L2618">		js.call(&quot;toggle&quot;, state);</span>
+<span class="nc" id="L2619">		return this;</span>
 	}
 
 	// https://api.jquery.com/toggleClass/
 	public JQuery toggleClass(IntStringBooleanStringFunction function) {
-<span class="nc" id="L2627">		js.call(&quot;toggleClass&quot;, createFunction(function));</span>
-<span class="nc" id="L2628">		return this;</span>
+<span class="nc" id="L2624">		js.call(&quot;toggleClass&quot;, createFunction(function));</span>
+<span class="nc" id="L2625">		return this;</span>
 	}
 
 
 	// https://api.jquery.com/toggleClass/
 	public JQuery toggleClass(IntStringBooleanStringFunction function, boolean state) {
-<span class="nc" id="L2634">		js.call(&quot;toggleClass&quot;, createFunction(function), state);</span>
-<span class="nc" id="L2635">		return this;</span>
+<span class="nc" id="L2631">		js.call(&quot;toggleClass&quot;, createFunction(function), state);</span>
+<span class="nc" id="L2632">		return this;</span>
 	}
 
 	// https://api.jquery.com/trigger/
 	public JQuery trigger(String eventType) {
-<span class="nc" id="L2640">		js.call(&quot;trigger&quot;, eventType);</span>
-<span class="nc" id="L2641">		return this;</span>
+<span class="nc" id="L2637">		js.call(&quot;trigger&quot;, eventType);</span>
+<span class="nc" id="L2638">		return this;</span>
 	}
 	
 	// https://api.jquery.com/trigger/
 	public JQuery trigger(String eventType, PlainObject extraParameters) {
-<span class="nc" id="L2646">		js.call(&quot;trigger&quot;, eventType, extraParameters.toJSObject());</span>
-<span class="nc" id="L2647">		return this;</span>
+<span class="nc" id="L2643">		js.call(&quot;trigger&quot;, eventType, extraParameters.toJSObject());</span>
+<span class="nc" id="L2644">		return this;</span>
 	}
 
 	// https://api.jquery.com/trigger/
 	public JQuery trigger(String eventType, Object ... extraParameters) {
-<span class="nc" id="L2652">		js.call(&quot;trigger&quot;, eventType, createArray(extraParameters));</span>
-<span class="nc" id="L2653">		return this;</span>
+<span class="nc" id="L2649">		js.call(&quot;trigger&quot;, eventType, createArray(extraParameters));</span>
+<span class="nc" id="L2650">		return this;</span>
 	}
 
 	// https://api.jquery.com/trigger/
 	public JQuery trigger(Event event) {
-<span class="nc" id="L2658">		js.call(&quot;trigger&quot;, event.js);</span>
-<span class="nc" id="L2659">		return this;</span>
+<span class="nc" id="L2655">		js.call(&quot;trigger&quot;, event.js);</span>
+<span class="nc" id="L2656">		return this;</span>
 	}
 	
 	// https://api.jquery.com/trigger/
 	public JQuery trigger(Event event, PlainObject extraParameters) {
-<span class="nc" id="L2664">		js.call(&quot;trigger&quot;, event.js,extraParameters.toJSObject());</span>
-<span class="nc" id="L2665">		return this;</span>
+<span class="nc" id="L2661">		js.call(&quot;trigger&quot;, event.js,extraParameters.toJSObject());</span>
+<span class="nc" id="L2662">		return this;</span>
 	}
 
 	// https://api.jquery.com/trigger/
 	public JQuery trigger(Event event, Object ... extraParameters) {
-<span class="nc" id="L2670">		js.call(&quot;trigger&quot;, event.js, createArray(extraParameters));</span>
-<span class="nc" id="L2671">		return this;</span>
+<span class="nc" id="L2667">		js.call(&quot;trigger&quot;, event.js, createArray(extraParameters));</span>
+<span class="nc" id="L2668">		return this;</span>
 	}
 
 	// https://api.jquery.com/triggerHandler/
 	public JQuery triggerHandler(String eventType) {
-<span class="nc" id="L2676">		js.call(&quot;triggerHandler&quot;, eventType);</span>
-<span class="nc" id="L2677">		return this;</span>
+<span class="nc" id="L2673">		js.call(&quot;triggerHandler&quot;, eventType);</span>
+<span class="nc" id="L2674">		return this;</span>
 	}
 
 	// https://api.jquery.com/triggerHandler/
 	public JQuery triggerHandler(String eventType, PlainObject extraParameters) {
-<span class="nc" id="L2682">		js.call(&quot;triggerHandler&quot;, eventType, extraParameters.toJSObject());</span>
-<span class="nc" id="L2683">		return this;</span>
+<span class="nc" id="L2679">		js.call(&quot;triggerHandler&quot;, eventType, extraParameters.toJSObject());</span>
+<span class="nc" id="L2680">		return this;</span>
 	}
 
 	// https://api.jquery.com/triggerHandler/
 	public JQuery triggerHandler(String eventType, Object ... extraParameters) {
-<span class="nc" id="L2688">		js.call(&quot;triggerHandler&quot;, eventType, createArray(extraParameters));</span>
-<span class="nc" id="L2689">		return this;</span>
+<span class="nc" id="L2685">		js.call(&quot;triggerHandler&quot;, eventType, createArray(extraParameters));</span>
+<span class="nc" id="L2686">		return this;</span>
 	}
 
 	// https://api.jquery.com/triggerHandler/
 	public JQuery triggerHandler(Event event) {
-<span class="nc" id="L2694">		js.call(&quot;triggerHandler&quot;);</span>
-<span class="nc" id="L2695">		return this;</span>
+<span class="nc" id="L2691">		js.call(&quot;triggerHandler&quot;);</span>
+<span class="nc" id="L2692">		return this;</span>
 	}
 
 	// https://api.jquery.com/triggerHandler/
 	public JQuery triggerHandler(Event event, PlainObject extraParameters) {
-<span class="nc" id="L2700">		js.call(&quot;triggerHandler&quot;, event.js, extraParameters.toJSObject());</span>
-<span class="nc" id="L2701">		return this;</span>
+<span class="nc" id="L2697">		js.call(&quot;triggerHandler&quot;, event.js, extraParameters.toJSObject());</span>
+<span class="nc" id="L2698">		return this;</span>
 	}
 
 	// https://api.jquery.com/triggerHandler/
 	public JQuery triggerHandler(Event event, Object ... extraParameters) {
-<span class="nc" id="L2706">		js.call(&quot;triggerHandler&quot;, event.js, createArray(extraParameters));</span>
-<span class="nc" id="L2707">		return this;</span>
+<span class="nc" id="L2703">		js.call(&quot;triggerHandler&quot;, event.js, createArray(extraParameters));</span>
+<span class="nc" id="L2704">		return this;</span>
 	}
 
 	// https://api.jquery.com/unbind/
 	public JQuery unbind() {
-<span class="nc" id="L2712">		js.call(&quot;unbind&quot;);</span>
-<span class="nc" id="L2713">		return this;</span>
+<span class="nc" id="L2709">		js.call(&quot;unbind&quot;);</span>
+<span class="nc" id="L2710">		return this;</span>
 	}
 	
 	// https://api.jquery.com/unbind/
 	public JQuery unbind(String eventType) {
-<span class="nc" id="L2718">		js.call(&quot;unbind&quot;,eventType);</span>
-<span class="nc" id="L2719">		return this;</span>
+<span class="nc" id="L2715">		js.call(&quot;unbind&quot;,eventType);</span>
+<span class="nc" id="L2716">		return this;</span>
 	}
 	
 	// https://api.jquery.com/unbind/
 	public JQuery unbind(String eventType, EventHandler handler) {
-<span class="fc" id="L2724">		js.call(&quot;unbind&quot;,eventType, eventHandlerMap.get(handler.hashCode()));</span>
-<span class="fc" id="L2725">		return this;</span>
+<span class="fc" id="L2721">		js.call(&quot;unbind&quot;,eventType, eventHandlerMap.get(handler.hashCode()));</span>
+<span class="fc" id="L2722">		return this;</span>
 	}
 	
 	// https://api.jquery.com/unbind/
 	public JQuery unbind(String eventType, boolean b) {
-<span class="nc" id="L2730">		js.call(&quot;unbind&quot;,eventType,false);</span>
-<span class="nc" id="L2731">		return this;</span>
+<span class="nc" id="L2727">		js.call(&quot;unbind&quot;,eventType,false);</span>
+<span class="nc" id="L2728">		return this;</span>
 	}
 	
 	// https://api.jquery.com/unbind/
 	public JQuery unbind(Event event) {
-<span class="nc" id="L2736">		js.call(&quot;unbind&quot;, event.js);</span>
-<span class="nc" id="L2737">		return this;</span>
+<span class="nc" id="L2733">		js.call(&quot;unbind&quot;, event.js);</span>
+<span class="nc" id="L2734">		return this;</span>
 	}
 	
 	// https://api.jquery.com/undelegate/
 	public JQuery undelegate() {
-<span class="nc" id="L2742">		js.call(&quot;undelegate&quot;);</span>
-<span class="nc" id="L2743">		return this;</span>
+<span class="nc" id="L2739">		js.call(&quot;undelegate&quot;);</span>
+<span class="nc" id="L2740">		return this;</span>
 	}
 
 	// https://api.jquery.com/undelegate/
 	public JQuery undelegate(String selector, String eventType) {
-<span class="nc" id="L2748">		js.call(&quot;undelegate&quot;,selector, eventType);</span>
-<span class="nc" id="L2749">		return this;</span>
+<span class="nc" id="L2745">		js.call(&quot;undelegate&quot;,selector, eventType);</span>
+<span class="nc" id="L2746">		return this;</span>
 	}
 
 	// https://api.jquery.com/undelegate/
 	public JQuery undelegate(String selector, String eventType, EventHandler handler) {
-<span class="nc" id="L2754">		return new JQuery(js.call(&quot;undelegate&quot;, selector, eventType, createFunction(handler)));</span>
+<span class="nc" id="L2751">		return new JQuery(js.call(&quot;undelegate&quot;, selector, eventType, createFunction(handler)));</span>
 	}
 
 	// https://api.jquery.com/undelegate/
 	public JQuery undelegate(String selector, Object events) {
-<span class="nc" id="L2759">		return new JQuery(js.call(&quot;undelegate&quot;, selector, events));</span>
+<span class="nc" id="L2756">		return new JQuery(js.call(&quot;undelegate&quot;, selector, events));</span>
 	}
 
 	// https://api.jquery.com/undelegate/
 	public JQuery undelegate(String namespace) {
-<span class="nc" id="L2764">		js.call(&quot;undelegate&quot;, namespace);</span>
-<span class="nc" id="L2765">		return this;</span>
+<span class="nc" id="L2761">		js.call(&quot;undelegate&quot;, namespace);</span>
+<span class="nc" id="L2762">		return this;</span>
 	}
 
 	// https://api.jquery.com/unwrap/
 	public JQuery unwrap() {
-<span class="nc" id="L2770">		return new JQuery(js.call(&quot;unwrap&quot;));</span>
+<span class="nc" id="L2767">		return new JQuery(js.call(&quot;unwrap&quot;));</span>
 	}
 	
 	// https://api.jquery.com/val/
 	public Object val() {
-<span class="nc" id="L2775">		return js.call(&quot;val&quot;);</span>
+<span class="nc" id="L2772">		return js.call(&quot;val&quot;);</span>
 	}
 	
 	// https://api.jquery.com/val/
 	public JQuery val(Object value) {
-<span class="nc" id="L2780">		js.call(&quot;val&quot;,value);</span>
-<span class="nc" id="L2781">		return this;</span>
+<span class="nc" id="L2777">		js.call(&quot;val&quot;,value);</span>
+<span class="nc" id="L2778">		return this;</span>
 	}
 
 	// https://api.jquery.com/val/
 	public JQuery val(IntStringStringFunction function) {
-<span class="nc" id="L2786">		js.call(&quot;val&quot;, createFunction(function));</span>
-<span class="nc" id="L2787">		return this;</span>
+<span class="nc" id="L2783">		js.call(&quot;val&quot;, createFunction(function));</span>
+<span class="nc" id="L2784">		return this;</span>
 	}
 
 	// https://api.jquery.com/width/
 	public double width() {
-<span class="fc" id="L2792">		return (double)(int)js.call(&quot;width&quot;);</span>
+<span class="fc" id="L2789">		return (double)(int)js.call(&quot;width&quot;);</span>
 	}
 	
 	// https://api.jquery.com/width/
 	public JQuery width(double value) {
-<span class="fc" id="L2797">		js.call(&quot;width&quot;,value);</span>
-<span class="fc" id="L2798">		return this;</span>
+<span class="fc" id="L2794">		js.call(&quot;width&quot;,value);</span>
+<span class="fc" id="L2795">		return this;</span>
 	}
 
 	// https://api.jquery.com/width/
 	public JQuery width(IntIntStringFunction function) {
-<span class="nc" id="L2803">		return new JQuery(js.call(&quot;width&quot;, createFunction(function)));</span>
+<span class="nc" id="L2800">		return new JQuery(js.call(&quot;width&quot;, createFunction(function)));</span>
 	}
 
 	// https://api.jquery.com/width/
 	public JQuery width(IntIntIntFunction function) {
-<span class="nc" id="L2808">		return new JQuery(js.call(&quot;width&quot;, createFunction(function)));</span>
+<span class="nc" id="L2805">		return new JQuery(js.call(&quot;width&quot;, createFunction(function)));</span>
 	}
 
 	// https://api.jquery.com/wrap/
 	public JQuery wrap(String selectorOrHTML) {
-<span class="nc" id="L2813">		return new JQuery(js.call(&quot;wrap&quot;, selectorOrHTML));</span>
+<span class="nc" id="L2810">		return new JQuery(js.call(&quot;wrap&quot;, selectorOrHTML));</span>
 	}
 	
 	// https://api.jquery.com/wrap/
 	public JQuery wrap(JQuery wrappingElement) {
-<span class="nc" id="L2818">		return new JQuery(js.call(&quot;wrap&quot;, wrappingElement.js));</span>
+<span class="nc" id="L2815">		return new JQuery(js.call(&quot;wrap&quot;, wrappingElement.js));</span>
 	}
 	
 	// https://api.jquery.com/wrap/
 	public JQuery wrap(Element wrappingElement) {
-<span class="nc" id="L2823">		return new JQuery(js.call(&quot;wrap&quot;, wrappingElement));</span>
+<span class="nc" id="L2820">		return new JQuery(js.call(&quot;wrap&quot;, wrappingElement));</span>
 	}
 
 	// https://api.jquery.com/wrap/
 	public JQuery wrap(IntStringFunction function) {
-<span class="nc" id="L2828">		return new JQuery(js.call(&quot;wrap&quot;, createFunction(function)));</span>
+<span class="nc" id="L2825">		return new JQuery(js.call(&quot;wrap&quot;, createFunction(function)));</span>
 	}
 
 	// https://api.jquery.com/wrapAll/
 	public JQuery wrapAll(String selectorOrHTML) {
-<span class="nc" id="L2833">		return new JQuery(js.call(&quot;wrapAll&quot;, selectorOrHTML));</span>
+<span class="nc" id="L2830">		return new JQuery(js.call(&quot;wrapAll&quot;, selectorOrHTML));</span>
 	}
 	
 	// https://api.jquery.com/wrapAll/
 	public JQuery wrapAll(JQuery wrappingElement) {
-<span class="nc" id="L2838">		return new JQuery(js.call(&quot;wrapAll&quot;, wrappingElement.js));</span>
+<span class="nc" id="L2835">		return new JQuery(js.call(&quot;wrapAll&quot;, wrappingElement.js));</span>
 	}
 	
 	// https://api.jquery.com/wrapAll/
 	public JQuery wrapAll(Element wrappingElement) {
-<span class="nc" id="L2843">		return new JQuery(js.call(&quot;wrapAll&quot;, wrappingElement));</span>
+<span class="nc" id="L2840">		return new JQuery(js.call(&quot;wrapAll&quot;, wrappingElement));</span>
 	}
 	
 	// https://api.jquery.com/wrapAll/
 	public JQuery wrapAll(IntStringFunction function) {
-<span class="nc" id="L2848">		return new JQuery(js.call(&quot;wrapAll&quot;, createFunction(function)));</span>
+<span class="nc" id="L2845">		return new JQuery(js.call(&quot;wrapAll&quot;, createFunction(function)));</span>
 	}
 	
 	// https://api.jquery.com/wrapInner/
 	public JQuery wrapInner(String selectorOrHTML) {
-<span class="nc" id="L2853">		return new JQuery(js.call(&quot;wrapInner&quot;, selectorOrHTML));</span>
+<span class="nc" id="L2850">		return new JQuery(js.call(&quot;wrapInner&quot;, selectorOrHTML));</span>
 	}
 	
 	// https://api.jquery.com/wrapInner/
 	public JQuery wrapInner(JQuery wrappingElement) {
-<span class="nc" id="L2858">		return new JQuery(js.call(&quot;wrapInner&quot;, wrappingElement.js));</span>
+<span class="nc" id="L2855">		return new JQuery(js.call(&quot;wrapInner&quot;, wrappingElement.js));</span>
 	}
 	
 	// https://api.jquery.com/wrapInner/
 	public JQuery wrapInner(Element wrappingElement) {
-<span class="nc" id="L2863">		return new JQuery(js.call(&quot;wrapInner&quot;, wrappingElement));</span>
+<span class="nc" id="L2860">		return new JQuery(js.call(&quot;wrapInner&quot;, wrappingElement));</span>
 	}
 	
 	// https://api.jquery.com/wrapInner/
 	public JQuery wrapInner(IntStringFunction function) {
-<span class="nc" id="L2868">		return new JQuery(js.call(&quot;wrapInner&quot;, createFunction(function)));</span>
+<span class="nc" id="L2865">		return new JQuery(js.call(&quot;wrapInner&quot;, createFunction(function)));</span>
 	}
 	
 	@Override
 	public String toString() {
-<span class="fc" id="L2873">		StringBuilder sb = new StringBuilder();</span>
-<span class="fc" id="L2874">		sb.append(&quot;JQuery[&quot;);</span>
-<span class="pc bpc" id="L2875" title="1 of 2 branches missed.">		if (this.length&gt;0) {</span>
-<span class="fc" id="L2876">			sb.append(this.get(0));</span>
-<span class="fc bfc" id="L2877" title="All 2 branches covered.">			for (int i=1 ; i&lt;this.length ; i++) {</span>
-<span class="fc" id="L2878">				sb.append(&quot;,&quot;);</span>
-<span class="fc" id="L2879">				sb.append(this.get(i).toString());</span>
+<span class="fc" id="L2870">		StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L2871">		sb.append(&quot;JQuery[&quot;);</span>
+<span class="pc bpc" id="L2872" title="1 of 2 branches missed.">		if (this.length&gt;0) {</span>
+<span class="fc" id="L2873">			sb.append(this.get(0));</span>
+<span class="fc bfc" id="L2874" title="All 2 branches covered.">			for (int i=1 ; i&lt;this.length ; i++) {</span>
+<span class="fc" id="L2875">				sb.append(&quot;,&quot;);</span>
+<span class="fc" id="L2876">				sb.append(this.get(i).toString());</span>
 			}
 		}
-<span class="fc" id="L2882">		sb.append(&quot;]&quot;);</span>
-<span class="fc" id="L2883">		return sb.toString();</span>
+<span class="fc" id="L2879">		sb.append(&quot;]&quot;);</span>
+<span class="fc" id="L2880">		return sb.toString();</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

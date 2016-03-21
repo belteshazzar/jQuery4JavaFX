@@ -366,32 +366,29 @@ public class JQuery {
 //		return new JQuery(null);
 //	}
 	
-	/** https://api.jquery.com/jQuery/#jQuery-html-attributes
-	 *
-	 * Javascript examples:
-	 * 
-	 * $( "<div></div>", {
-  	 *   "class": "my-div",
-  	 *   on: {
-   	 * 	   touchstart: function( event ) {
-     *       // Do something
-     *     }
-     *   }
-     * }).appendTo( "body" );
-	 * 
-	 * $( "<div/>", {
-  	 *   "class": "test",
-  	 *   text: "Click me!",
-     *   click: function() {
-     *     $( this ).toggleClass( "test" );
-	 *   }
-	 * })
-  	 * .appendTo( "body" );
-  	 * 
-	 * @param html
-	 * @param attributes
-	 * @return
-	 */
+//	/* https://api.jquery.com/jQuery/#jQuery-html-attributes
+//	 *
+//	 * Javascript examples:
+//	 * 
+//	 * $( "<div></div>", {
+//  	 *   "class": "my-div",
+//  	 *   on: {
+//   	 * 	   touchstart: function( event ) {
+//     *       // Do something
+//     *     }
+//     *   }
+//     * }).appendTo( "body" );
+//	 * 
+//	 * $( "<div/>", {
+//  	 *   "class": "test",
+//  	 *   text: "Click me!",
+//     *   click: function() {
+//     *     $( this ).toggleClass( "test" );
+//	 *   }
+//	 * })
+//  	 * .appendTo( "body" );
+//  	 * 
+//	 */
 	public static JQuery $(String html, PlainObject attributes) {
 		return new JQuery(window.call("jQuery", html, attributes.toJSObject()));
 	}
