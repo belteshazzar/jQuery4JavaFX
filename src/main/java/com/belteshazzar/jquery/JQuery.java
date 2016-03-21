@@ -65,17 +65,15 @@ import netscape.javascript.JSObject;
 public class JQuery {
 	
 	public static final String DEFAULT_JQUERY_LOCAL = JQuery.class.getResource("jquery-2.2.1.min.js").toExternalForm();
-	public static final String DEFAULT_JQUERY_REMOTE = "http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js";
+	public static final String DEFAULT_JQUERY_REMOTE = "https://code.jquery.com/jquery-2.2.2.min.js";
 	public static final boolean DEFAULT_CLEAR_READY_FUNCTIONS = true;
 
-	private static class Config {
-		String local;
-		String remote;
+	public static class Config {
+		String src;
 		boolean clearReadyFunctions;
 		
 		Config() {
-			this.local = DEFAULT_JQUERY_LOCAL;
-			this.remote = DEFAULT_JQUERY_REMOTE;
+			this.src = DEFAULT_JQUERY_LOCAL;
 			this.clearReadyFunctions = DEFAULT_CLEAR_READY_FUNCTIONS;
 		}
 	}
@@ -85,7 +83,7 @@ public class JQuery {
 
 	private static WebEngine webEngine;
 	private static JSObject window = null;
-	private static Config config = new Config();
+	public static final Config config = new Config();
 	
 	public static void setEngine(WebEngine webEngine) {
 		JQuery.webEngine = webEngine;
@@ -134,13 +132,11 @@ public class JQuery {
 
 				@Override
 				public void handleEvent(org.w3c.dom.events.Event evt) {
-					if (script.getSrc().equals(JQuery.config.local)) {
-						script.setSrc(JQuery.config.remote);
-					}
+					throw new IllegalStateException("failed to load jquery from: " + script.getSrc());
 				}
 				
 			}, false);
-			script.setSrc(JQuery.config.local);
+			script.setSrc(JQuery.config.src);
 			doc.getBody().appendChild(script);
 		}
 	}

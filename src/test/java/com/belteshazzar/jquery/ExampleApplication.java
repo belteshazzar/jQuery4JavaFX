@@ -23,17 +23,17 @@ public class ExampleApplication extends Application {
     		System.err.println("Please provide url to load as command line parameter");
     		Platform.exit();
     	}
+    	JQuery.config.src = JQuery.DEFAULT_JQUERY_REMOTE;
+    	JQuery.config.clearReadyFunctions = false;
     	JQuery.$(() -> {
-    		$("#hplogo").mouseenter((ev) -> {
-    			$("#hplogo").css("border", "1px solid red");
+    		System.err.println("page loaded");
+    		System.err.println("<a> count = " + $("a").length);
+    		$("a").mouseover((ev) -> {
+    			$(ev.currentTarget()).css("border", "1px solid red");
     		});
-    		$("#hplogo").mouseleave((ev) -> {
-    			$("#hplogo").css("border", "none");
+    		$("a").mouseout((ev) -> {
+    			$(ev.currentTarget()).css("border", "none");
     		});
-    		$("h1").css(new PlainObject()
-    				.set("text-decoration","underline")
-    				.set("color", "blue"))
-    			.after("<p>Added by jQuery</p>");
     	});
 
         // create the scene
@@ -42,6 +42,7 @@ public class ExampleApplication extends Application {
         Scene scene = new Scene(browser,750,500, Color.web("#666970"));
         stage.setScene(scene);
         stage.show();
+        System.err.println("Loading: " + getParameters().getRaw().get(0));
        	browser.load(getParameters().getRaw().get(0));
     }
     
