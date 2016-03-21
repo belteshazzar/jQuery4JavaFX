@@ -113,10 +113,10 @@ To use the package, you need to use following Maven dependency:
 <dependency>
   <groupId>com.belteshazzar</groupId>
   <artifactId>jQuery4JavaFX</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.3</version>
 </dependency>
 ```
 
 ## Non-Maven Download
 
-For non-Maven use cases, you download jars from [Central Maven repository](http://repo1.maven.org/maven2/com/belteshazzar/jQuery4JavaFX/0.0.4/jQuery4JavaFX-0.0.2.jar).
+For non-Maven use cases, you download jars from [Central Maven repository](http://repo1.maven.org/maven2/com/belteshazzar/jQuery4JavaFX/0.0.3/jQuery4JavaFX-0.0.3.jar).
