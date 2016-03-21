@@ -6,32 +6,21 @@ jQuery4JavaFX is an implementation of the jQuery API in Java for use with the Ja
 
 The following example application is included in the test source folder. It loads http://en.wikipedia.org and runs a jQuery snippet when the page is loaded.
 
-
 ```java
-package com.belteshazzar.jquery;
 
 import static com.belteshazzar.jquery.JQuery.$;
-
 import com.belteshazzar.jquery.JQuery;
-
-import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.geometry.HPos;
-import javafx.geometry.VPos;
-import javafx.scene.Scene;
-import javafx.scene.layout.Region;
-import javafx.scene.paint.Color;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
-import javafx.stage.Stage;
 
 public class ExampleApplication extends Application {
 
     @Override
     public void start(Stage stage) {
+       // config options
     	JQuery.config.src = JQuery.DEFAULT_JQUERY_REMOTE;
     	JQuery.config.clearReadyFunctions = false;
-    	JQuery.$(() -> {
+    	
+    	// jQuery ready function
+    	$(() -> {
     		System.err.println("page loaded");
     		System.err.println("<a> count = " + $("a").length);
     		$("a").mouseover((ev) -> {
@@ -48,12 +37,8 @@ public class ExampleApplication extends Application {
         Scene scene = new Scene(browser,750,500, Color.web("#666970"));
         stage.setScene(scene);
         stage.show();
-       	browser.load("http://en.wikipedia.org");
-    }
-      
-    public static void main(String[] args) {
-     	launch(args);
-    }
+        browser.load("http://en.wikipedia.org");
+    }      
 }
 
 class Browser extends Region {
@@ -64,29 +49,12 @@ class Browser extends Region {
     public Browser() {
         browser = new WebView();
         webEngine = browser.getEngine();
-        JQuery.setEngine(webEngine);
+        JQuery.setEngine(webEngine); // JQuery needs a reference to the WebEngine
         getChildren().add(browser);
     }
     
     public void load(String url) {
     	webEngine.load(url);
-    }
- 
-    @Override
-    protected void layoutChildren() {
-        double w = getWidth();
-        double h = getHeight();
-        layoutInArea(browser,0,0,w,h,0, HPos.CENTER, VPos.CENTER);
-    }
- 
-    @Override 
-    protected double computePrefWidth(double height) {
-        return 750;
-    }
- 
-    @Override 
-    protected double computePrefHeight(double width) {
-        return 500;
     }
 }
 
