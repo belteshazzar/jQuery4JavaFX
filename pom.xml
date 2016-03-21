@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.belteshazzar</groupId>
 	<artifactId>jQuery4JavaFX</artifactId>
-	<version>0.0.3</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
