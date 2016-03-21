@@ -2,10 +2,7 @@ package com.belteshazzar.jquery;
 
 import static com.belteshazzar.jquery.JQuery.$;
 
-import com.belteshazzar.jquery.JQuery;
-
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
@@ -19,10 +16,6 @@ public class ExampleApplication extends Application {
 
     @Override
     public void start(Stage stage) {
-    	if (getParameters().getRaw().size()!=1) {
-    		System.err.println("Please provide url to load as command line parameter");
-    		Platform.exit();
-    	}
     	JQuery.config.src = JQuery.DEFAULT_JQUERY_REMOTE;
     	JQuery.config.clearReadyFunctions = false;
     	JQuery.$(() -> {
@@ -42,8 +35,7 @@ public class ExampleApplication extends Application {
         Scene scene = new Scene(browser,750,500, Color.web("#666970"));
         stage.setScene(scene);
         stage.show();
-        System.err.println("Loading: " + getParameters().getRaw().get(0));
-       	browser.load(getParameters().getRaw().get(0));
+       	browser.load("http://en.wikipedia.org");
     }
     
     public static void main(String[] args) {
